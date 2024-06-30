@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import Navbar from "./_components/navbar";
 
 import { GeistSans } from "geist/font/sans";
 
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
+        <Navbar />
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
