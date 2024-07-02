@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Black Ops One";
+  src: url("../../public/Fonts/BlackOpsOne-Regular.ttf");
+}
+
+.acm {
+  font-family: "Black Ops One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.test-border {
+  border: 5px solid red;
+}
