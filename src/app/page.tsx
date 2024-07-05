@@ -9,73 +9,44 @@ export default async function Home() {
   const session = await getServerAuthSession();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center text-white overflow-hidden">
-      {/* Main page: ACM y links de instagram / redes */}
-      {/* <div className="flex flex-col items-center justify-center h-screen w-screen bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(Img/Fondo.jpg)`}}> */}
-      <div className="flex flex-col items-center justify-center h-screen w-screen z-auto overflow-x-hidden relative top-0">
-          <div className="relative w-full h-full">
-            <img
-              src="/Img/Fondo.jpg"
-              className="w-full h-screen object-cover relative top-0 -z-10"
-              alt="Fondo1"
-            />
-            <img
-              src="/Img/Degradado.jpeg"
-              className="w-full h-screen object-cover opacity-55 absolute top-0 rotate-180 -z-10"
-              alt="Fondo2"
-            />
+    <main className="relative min-h-screen items-center justify-center bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(images/backgrounds/homepage.png)', minHeight: '400vh', backgroundSize: 'cover', backgroundAttachment: 'scroll'}}>
+        
+        <div className="grid grid-rows-5 grid-cols-4 items-center text-center text-white">
+          <h1 className="text-xl tracking-wider font-extrabold sm:text-[15rem] col-start-2 col-span-2 row-start-3">
+            <span className="acm text-9xl">ACM</span>
+          </h1>
+          <div className="col-start-2 col-span-2 row-start-4 items-center">
+            ¡Bienvenido a ACM! Somos un grupo estudiantil del Tecnológico de Monterrey, Campus Querétaro dedicado a la
+            programación competitiva y otros proyectos de programación. No dudes en contactarnos.
           </div>
-      </div>
-
-      <div className="absolute top-0 h-screen w-screen flex flex-col items-center justify-center">
-        <h1 className="text-xl font-extrabold tracking-tight sm:text-[5rem]">
-          <span className="acm text-9xl">ACM</span>
-        </h1>
-        <div className="flex flex-col items-center gap-2 ">
-          <div className="flex flex-col items-center justify-center gap-4 text-center">
-            <p className="text-center text-2xl text-white">
-              {session && <span>Logged in as {session.user?.name}</span>}
-            </p>
-            <Link
-              href="https://www.instagram.com/acm_qro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-              className="rounded-full bg-white/30 px-10 py-3 font-semibold no-underline transition hover:bg-white/50 w-full"
+          <div className="col-start-2 col-span-2 row-start-5 flex items-center justify-center space-x-4">
+            <Link href="https://www.instagram.com/acm_qro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
             >
-            Instagram
+              <img
+                src="images/logos/Instagram-Icon.png"
+              />
             </Link>
-            <Link
-              href={"/page2"}
-              className="rounded-full bg-white/30 px-10 py-3 font-semibold no-underline transition hover:bg-white/50 w-full"
+            <Link href="/"
             >
-            Siguiente Página
+              <img
+                src="images/logos/Whatsapp-Icon.png"
+              />
+            </Link>
+            <Link href="/"
+            >
+              <img
+                src="images/logos/Github-Icon.png"
+              />
+            </Link>
+            <Link href="/"
+            >
+              <img
+                src="images/logos/Email-Icon.png"
+              />
             </Link>
           </div>
         </div>
-      </div>
-
-    <div className="h-screen w-screen relative z-30 -mt-5">
-      <img className="h-screen w-screen bg-[#45275D] blur-lg z-30 absolute top-0"/>
-      <div className="absolute top-0 ">
-      
-      </div>
-
-    </div>
-    <div className="h-screen w-screen items-center -my-10 relative z-10">
-        {/* <img src='Img/inicio.jpg' className="flex flex-col items-center justify-center h-screen w-full bg-cover bg-center bg-no-repeat blur-lg overflow-hidden -mt-10 z-10 absolute top-0 left-0 "/> */}
-        <div className="relative w-full h-full">
-            <div
-              className="w-full h-screen object-cover absolute top-0" style={{backgroundColor: '#39275E'}}
-            />
-            <img
-              src="/Img/Degradado.jpeg"
-              className="w-full h-screen object-cover opacity-55 absolute top-0 "
-              alt="Fondo2"
-            />
-          </div>
-        {/* <div className="flex flex-col items-center justify-center h-screen w-screen bg-cover bg-center bg-no-repeat absolute top-2" style={{backgroundImage: `url(Img/inicio.jpg)`}}>
-        
-        </div> */}
-    </div>
-        
-  </main>
+  
+    </main>
   );
 }
