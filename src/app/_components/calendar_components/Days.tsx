@@ -1,15 +1,18 @@
 import { Grid, Typography, useTheme } from '@mui/material';
 import moment from 'moment';
-import {FC} from 'react'
-import { DaysGrid } from '~/app/types/EventCalendarType';
+import {FC} from 'react';
+import { DaysGrid, EventsData } from '~/app/types/EventCalendarType';
+import Event from './Event';
 
 interface Props {
     i: number;
     daysGridLenght: number;
     item: DaysGrid;
+
+    events?: EventsData;
 }
 
-const Day: FC<Props> = ({daysGridLenght, i, item}) => {
+const Day: FC<Props> = ({daysGridLenght, i, item, events}) => {
   const theme = useTheme()
   
     const getWeekDays = () => [
@@ -33,9 +36,22 @@ const Day: FC<Props> = ({daysGridLenght, i, item}) => {
                 {weekDays[i]}
             </Typography> 
         </>}
-        <Typography variant='caption' className={` flex  hover:bg-[#d57aef] hover:bg-opacity-50 ${isSameDate ? 'bg-[#d57aef] hover:bg-[#ffacff]' : ''} text-slate-950 h-full items-center justify-center text-3xl mx-5 rounded-full typo-calendario`}>  
-            {item.no}
-        </Typography>
+
+        
+
+        <div className='  w-[5rem] relative'>
+          <Typography variant='caption' className={` flex absolute hover:bg-[#d57aef] hover:bg-opacity-50 ${isSameDate ? 'bg-[#d57aef] hover:bg-[#ffacff]' : ''} text-slate-950 h-[5rem] w-[5rem] items-center justify-center text-3xl mx-2  rounded-full typo-calendario z-0`}>  
+              {item.no}
+          </Typography>
+          {/* Events */}
+          <Grid container className='absolute right-0 flex flex-row-reverse'>
+            {events?.map((e, i) => (
+              <Event key={e.id || i} event={e} i={i} />
+            ))}
+          </Grid>
+        </div>
+
+        
         
     </Grid>
   )
