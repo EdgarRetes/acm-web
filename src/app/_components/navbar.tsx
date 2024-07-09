@@ -6,7 +6,7 @@ export default async function Navbar() {
 
   const session = await getServerAuthSession();
   return (
-  <nav className="bg-gray-800 p-4 pl-0 z-50 fixed w-screen">
+  <nav className="p-2 pl-0 z-50 fixed w-screen">
     <div className="pr-12 pl-2">
       <div className="relative flex items-center justify-between h-16">
         <div className="flex-1 flex justify-center sm:items-stretch sm:justify-start">
@@ -21,7 +21,7 @@ export default async function Navbar() {
               <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Sobre Nosotros
               </Link>
-              <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="/events" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Eventos
               </Link>
               <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
