@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { getServerAuthSession } from "~/server/auth";
 
 
@@ -15,7 +14,7 @@ export default async function Navbar() {
             <div className="flex space-x-4 items-center">
             <div className="flex-shrink-0">
               <Link href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-3xl font-medium acm flex">
-                  <Image src='images/logos/ACM_logo_CG.png' className='size-8 mr-2' alt='logo-amc'/>
+                  <img src='images/logos/ACM_logo_CG.png' className='size-8 mr-2' alt='logo-amc'/>
                   ACM
                 </Link>
             </div>
