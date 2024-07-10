@@ -4,6 +4,7 @@ import {FC, useState} from 'react';
 import { DaysGrid, EventsData } from '~/app/types/EventCalendarType';
 import Event from './Event';
 import NewEventDialog from './NewEventDialog';
+import useDiaState from '~/app/Hooks/useDiaState';
 
 interface Props {
     i: number;
@@ -11,9 +12,10 @@ interface Props {
     item: DaysGrid;
     events?: EventsData;
     addNewEventHandler: (title: string, content: string, date: Moment) => void
+    onDayChange: (dia: Moment) => void
 }
 
-const Day: FC<Props> = ({daysGridLenght, i, item, events, addNewEventHandler}) => {  
+const Day: FC<Props> = ({daysGridLenght, i, item, events, addNewEventHandler, onDayChange}) => {  
   
     const getWeekDays = () => [
     'LUN',
@@ -29,9 +31,16 @@ const Day: FC<Props> = ({daysGridLenght, i, item, events, addNewEventHandler}) =
 
   const isSameDate = moment().isSame(item.date, 'day')
 
-  
 //   Dias de la semana dentro del mes
   const [showNewEventDialog, setShowNewEventDialog] = useState(false)
+
+  const { dia, setDia } = useDiaState();
+
+  const handleClickEvent = (item: Moment) => {
+    setDia(item);
+    onDayChange(item)
+  }
+
     return (
     <Grid item textAlign='center' height='8rem' overflow='auto' width={`${100/7}%`} className='flex flex-col p-1' >
         {i < 7 && <>
@@ -46,7 +55,7 @@ const Day: FC<Props> = ({daysGridLenght, i, item, events, addNewEventHandler}) =
           <div className='-ml-2'>
             <Typography variant='caption' className={` flex absolute ${isSameDate ? 'bg-[#d57aef] hover:bg-[#ffacff] bg-opacity-70 hover:opacity-100' : ''} text-slate-950 h-[4.5rem] w-[4.5rem] items-center justify-center text-3xl mx-2  rounded-full typo-calendario cursor-pointer`}
               gutterBottom
-              onClick={() => setShowNewEventDialog(true)} // [CHANGE] autentificación y botón en otro extremo / lugar
+              onClick={() => handleClickEvent(item.date)} // [CHANGE] autentificación y botón en otro extremo / lugar | setShowNewEventDialog(true)
             >  
                 {item.no}
             </Typography>
@@ -57,6 +66,7 @@ const Day: FC<Props> = ({daysGridLenght, i, item, events, addNewEventHandler}) =
                 <Event key={e.id || i} event={e} i={i} />
               ))}
             </Grid>
+            
 
             {/* Add Events */}
             <NewEventDialog 
