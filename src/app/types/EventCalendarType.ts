@@ -10,7 +10,7 @@ export type Event = {
     id?: number;
     title: string;
     popupContent: ReactNode | ReactNode[];
-    date: Date | Moment;
+    date: Moment; // | Date 
     color?: string;
 }
 

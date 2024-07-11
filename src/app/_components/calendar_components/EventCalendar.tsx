@@ -17,27 +17,10 @@ interface Props {
     onDataChange?: (events: EventsData) => void;
 }
 
-
-const d: EventsData = [ 
-    {
-      id: 0,
-      date: new Date(),
-      popupContent: <>This will show in popup</>,
-      title: "Test 0",
-      color: '#003'
-    },
-    {
-      id: 1,
-      date: moment().subtract(2, 'days'),
-      popupContent: <>This will show in popup</>,
-      title: "Test 1",
-      color: '#342'
-    },
-  ]
-
 const EventCalendar: FC<Props> = ({data, onDataChange}) =>  {
     const {date, changeMonth, daysGrid} = useEventCalendar();
 
+// New event
     const addNewEventHandler = (title: string, content: string, date: Moment) => {
       if(title !== '' && content !== '') {
         const newDataArray = [...data]
@@ -52,30 +35,37 @@ const EventCalendar: FC<Props> = ({data, onDataChange}) =>  {
         onDataChange?.(newDataArray)
       }
     }
+// unused
 
     const { dia, setDia } = useDiaState();
 
     const handleDayChange = (newDay: Moment) => {
       setDia(newDay)
     }
-    useEffect(() => {
-      console.log(dia)
-    }, [dia])
 
   return (
 
     <div className='bg-gradient-to-t from-[#500889] to-[#440674] flex justify-center items-center pb-[5rem] h-full'>
         
-          <div className='w-1/3 h-[100vh] mt-[8rem] bg-[#8620b6] rounded-l-2xl flex justify-center items-center flex-col'>
-            <Typography className='text-[10rem] text-white typo-calendario flex items-center justify-center text-center flex-col'>
-              {dia ? dia.format('DD') : moment().format('DD')}
-            </Typography>
-            <Typography className='text-5xl text-white typo-calendario -mt-5'>
-              {dia ? dia.format('dddd').toUpperCase() : moment().format('dddd').toUpperCase()}
-            </Typography>
-            <Typography>
-              {}
-            </Typography>
+          <div className='w-1/3 h-[100vh] mt-[8rem] bg-[#8620b6] rounded-l-2xl flex justify-end items-center flex-col'>
+              <div className='felx h-1/2 items-end mb-5'>
+                <Typography className='text-[10rem] text-white typo-calendario flex justify-center'>
+                  {dia ? dia.format('DD') : moment().format('DD')}
+                </Typography>
+                <Typography className='text-5xl text-white typo-calendario -mt-5 '>
+                  {dia ? dia.format('dddd').toUpperCase() : moment().format('dddd').toUpperCase()}
+                </Typography>
+              </div>
+              
+              <div className='h-1/3 flex pb-10 w-11/12 flex-col'>
+                <Typography className=' text-white typo-calendario text-2xl'>
+                  {data.map((e) => (dia ? ((e.date.format('DD') === dia.format('DD')) ? e.title : null) : (((e.date.format('DD') === moment().format('DD')) ? e.title : null))))}
+                </Typography>
+                <Typography className=' text-white typo-calendario text-xl'>
+                  {data.map((e) => (dia ? ((e.date.format('DD') === dia.format('DD')) ? e.popupContent : null) : (((e.date.format('DD') === moment().format('DD')) ? e.popupContent : null))))}
+                </Typography>
+                
+              </div>
             
 
           </div>

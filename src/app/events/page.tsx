@@ -8,7 +8,7 @@ import { EventsData } from '../types/EventCalendarType'
 const d: EventsData = [ 
   {
     id: 0,
-    date: new Date(),
+    date: moment(),
     popupContent: <>This will show in popup</>,
     title: "Test 0",
     color: '#003'
