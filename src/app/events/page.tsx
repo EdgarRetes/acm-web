@@ -9,21 +9,22 @@ const d: EventsData = [
   {
     id: 0,
     date: moment(),
-    popupContent: <>This will show in popup</>,
-    title: "Test 0",
+    popupContent: <>Este es el contenido del evento 1</>,
+    title: "Titulo Evento 1",
     color: '#003'
   },
   {
     id: 1,
     date: moment().subtract(2, 'days'),
-    popupContent: <>This will show in popup</>,
-    title: "Test 1",
+    popupContent: <>Este es el contenido del evento 2</>,
+    title: "Titulo Evento 2",
     color: '#342'
   },
 ]
-
 function EventsPage() {
   const [data, setData] = useState(d)
+  
+  
   return (
     <EventCalendar data = {data} onDataChange={(events) => setData(events)}/>
   )
