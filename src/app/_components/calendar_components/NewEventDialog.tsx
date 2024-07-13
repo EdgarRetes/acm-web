@@ -1,34 +1,39 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle, Divider, TextField } from '@mui/material'
 import { Moment } from 'moment';
 import React, { FC, FormEvent, useState } from 'react'
-import { DaysGrid } from '~/app/types/EventCalendarType'
+
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import dayjs, { Dayjs } from 'dayjs';
+import moment from 'moment';
 
 interface Props extends DialogProps {
-  item: DaysGrid,
   addNewEvent: (title: string, content: string, date: Moment) => void;
 }
 
 
-const NewEventDialog: FC<Props> = ({item, addNewEvent, onClose, ... rest}) => {
+const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-  
+  const [fecha, setFecha] = useState<Dayjs | null>(null)
   
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     onClose?.({}, 'escapeKeyDown')
-    addNewEvent(title, content, item.date)
+    const momentFecha = dayjs(fecha).toDate()
+    const fechaEvento = moment(momentFecha)
+    addNewEvent(title, content, fechaEvento)
   }
   
   return (
     <Dialog {...rest} onClose={onClose}>
-      <DialogTitle>Add new event on {item.date.format('LL')}</DialogTitle>
-      <Divider light />
+      <Divider />
       <form onSubmit={handleSubmit}>
         <DialogContent>
           <TextField 
             variant = 'outlined'
-            label='title'
+            label='Titulo'
             type='text'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -36,7 +41,7 @@ const NewEventDialog: FC<Props> = ({item, addNewEvent, onClose, ... rest}) => {
           />
           <TextField 
             variant = 'outlined'
-            label='Popup content'
+            label='Contenido'
             type='text'
             multiline
             rows={4}
@@ -44,13 +49,22 @@ const NewEventDialog: FC<Props> = ({item, addNewEvent, onClose, ... rest}) => {
             onChange={(e) => setContent(e.target.value)}
             required
             fullWidth
-            className='mt-2'
+            className='my-2'
           />
+          
           {/* [MISSING] Falta entrada de fecha */}
+          <LocalizationProvider dateAdapter={AdapterDayjs} >
+            <DatePicker label='Dia del evento' 
+              format="DD/MM/YYYY"
+              value={fecha}
+              onChange={(nuevaFecha) => {setFecha(nuevaFecha)}}
+              />
+          </LocalizationProvider>
+
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => onClose?.({}, 'escapeKeyDown')}>Cancel</Button>
-          <Button type='submit'>Add</Button>
+          <Button onClick={() => onClose?.({}, 'escapeKeyDown')}>Cancelar</Button>
+          <Button type='submit'>Añadir</Button>
         </DialogActions>
       </form>
     </Dialog>

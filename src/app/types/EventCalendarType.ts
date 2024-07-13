@@ -9,7 +9,7 @@ export type DaysGrid = {
 export type Event = {
     id: number;
     title: string;
-    popupContent: ReactNode | ReactNode[];
+    content: string;
     date: Moment; // | Date 
     color?: string;
 }

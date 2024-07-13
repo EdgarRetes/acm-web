@@ -1,4 +1,4 @@
-import { Grid, Typography, useTheme } from '@mui/material';
+import { Button, Grid, Typography, useTheme } from '@mui/material';
 import moment, { Moment } from 'moment';
 import {FC, useState} from 'react';
 import { DaysGrid, EventsData } from '~/app/types/EventCalendarType';
@@ -15,7 +15,7 @@ interface Props {
     onDayChange: (dia: Moment) => void
 }
 
-const Day: FC<Props> = ({daysGridLenght, i, item, events, addNewEventHandler, onDayChange}) => {  
+const Day: FC<Props> = ({daysGridLenght, i, item, events, onDayChange}) => {  
   
     const getWeekDays = () => [
     'LUN',
@@ -30,9 +30,6 @@ const Day: FC<Props> = ({daysGridLenght, i, item, events, addNewEventHandler, on
   const weekDays = getWeekDays()
 
   const isSameDate = moment().isSame(item.date, 'day')
-
-//   Dias de la semana dentro del mes
-  const [showNewEventDialog, setShowNewEventDialog] = useState(false)
 
   const { dia, setDia } = useDiaState();
 
@@ -67,19 +64,8 @@ const Day: FC<Props> = ({daysGridLenght, i, item, events, addNewEventHandler, on
               ))}
             </Grid>
             
-
-            {/* Add Events */}
-            <NewEventDialog 
-              open={showNewEventDialog} 
-              onClose={() => setShowNewEventDialog(false)} 
-              addNewEvent={addNewEventHandler} 
-              item={item}
-              />
           </div>
         </div>
-
-        
-        
     </Grid>
   )
 }

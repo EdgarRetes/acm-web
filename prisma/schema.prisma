@@ -7,16 +7,16 @@ generator client {
 
 // Original Santi acuerdate de cambiarlo y quitar el tuyo!!!
 
-datasource db {
-    provider  = "postgresql"
-    url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-    directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
-}
-
 // datasource db {
-//     provider = "postgresql"
-//     url      = env("DATABASE_URL")
+//     provider  = "postgresql"
+//     url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+//     directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 // }
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
 
 model Post {
     id        Int      @id @default(autoincrement())
@@ -75,4 +75,11 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Event {
+    id      String @id @default(cuid())
+    title   String
+    content String
+    date    String
 }

@@ -22,7 +22,7 @@ const Event: FC<Props> = ({event, i})  => {
     </div>
         {/* <Dialog open={showDialog} onClose={() => setshowDialog(false)} >
           <DialogTitle>{event.title}</DialogTitle>
-          {event.popupContent}
+          {event.content}
         </Dialog> */}
     </>
   )
