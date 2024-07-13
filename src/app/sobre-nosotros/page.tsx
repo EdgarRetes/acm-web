@@ -133,12 +133,6 @@ const SobreNosotros = () => {
                         </h3>
                     </div>
                 </div>
-
-                
-                
-
-
-
             </section>
         </main>
     );
