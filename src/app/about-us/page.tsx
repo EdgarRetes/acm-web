@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const SobreNosotros = () => {
+const AboutUs = () => {
     return (
         <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-[#020F46] to-[#0E152A] text-white pt-[10rem]">
             <section className="flex flex-col items-center justify-center w-full">
@@ -138,4 +138,4 @@ const SobreNosotros = () => {
     );
 }
 
-export default SobreNosotros;
+export default AboutUs;
