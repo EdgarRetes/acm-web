@@ -48,13 +48,98 @@ const SobreNosotros = () => {
                 </div>
                     <div className="flex items-center justify-center col-start-4  row-start-4 row-span-6 -mt-[5.5rem]">
                         <img
-                            src="images/ACM Team.png"
+                            src="images/About-us/ACM Team.png"
                             className="w-[500px] h-auto max-w-none "
                             alt="Logo Sobre Nosotros"
                         />
                     </div>
-            </section>
 
+                <div className="grid grid-rows-4 grid-cols-9 items-center text-center">
+                    <h1 className="col-start-2 col-span-3 row-start-1 text-5xl border-x-[#4A67E3] border-l-8 border-spacing-12">
+                            <span className="invisible">
+                            ..
+                            </span>
+                            NUESTRO EQUIPO
+                    </h1>
+
+                    <div className="items-center justify-center row-start-2 row-span-2 col-start-2 p-4">
+                        <h2 className="text-white font-bold mb-10">
+                            PRESIDENTA
+                        </h2>
+                        <img className= "mb-8"
+                            src="images/About-us/AU_F.png"/>
+                        <h3 className="text-white">
+                            Andrea Fátima Figueroa López
+                        </h3>
+                    </div>
+                    <div className="items-center justify-center row-start-2 row-span-2 col-start-3 p-4">
+                        <h2 className="text-white font-bold mb-10">
+                            VICEPRESIDENTA
+                        </h2>
+                        <img className= "mb-8"
+                            src="images/About-us/AU_R.png"/>
+                        <h3 className="text-white">
+                            Romina Nájera Fuentes
+                        </h3>
+                    </div>
+                    <div className="items-center justify-center row-start-2 row-span-2 col-start-4 p-4">
+                        <h2 className="text-white font-bold mb-10">
+                            SECRETARÍA
+                        </h2>
+                        <img className= "mb-8"
+                            src="images/About-us/AU_Fe.png"/>
+                        <h3 className="text-white">
+                            Luisa Fernanda Valdez Guillén
+                        </h3>
+                    </div>
+                    <div className="items-center justify-center row-start-2 row-span-2 col-start-5 p-4">
+                        <h2 className="text-white font-bold mb-10">
+                            LOGÍSTICA
+                        </h2>
+                        <img className= "mb-8"
+                            src="images/About-us/AU_S.png"/>
+                        <h3 className="text-white">
+                            Santiago Alducín Villaseñor
+                        </h3>
+                    </div>
+                    <div className="items-center justify-center row-start-2 row-span-2 col-start-6 p-4">
+                        <h2 className="text-white font-bold mb-10">
+                            PUBLICIDAD
+                        </h2>
+                        <img className= "mb-8"
+                            src="images/About-us/AU_A.png"/>
+                        <h3 className="text-white">
+                            Alejandra Arredondo
+                        </h3>
+                    </div>
+                    <div className="items-center justify-center row-start-2 row-span-2 col-start-7 p-4">
+                        <h2 className="text-white font-bold mb-10">
+                            ACCIÓN SOCIAL
+                        </h2>
+                        <img className= "mb-8"
+                            src="images/About-us/AU_E.png"/>
+                        <h3 className="text-white">
+                            Edgar Martínez Retes
+                        </h3>
+                    </div>
+                    <div className="items-center justify-center row-start-2 row-span-2 col-start-8 p-4">
+                        <h2 className="text-white font-bold mb-10">
+                            FINANZAS
+                        </h2>
+                        <img className= "mb-8"
+                            src="images/About-us/AU_K.png"/>
+                        <h3 className="text-white">
+                            Kamila Jeannette Martínez Ibarra
+                        </h3>
+                    </div>
+                </div>
+
+                
+                
+
+
+
+            </section>
         </main>
     );
 }
