@@ -39,14 +39,16 @@ const Resources_ACM = () => {
 
     
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#500889] to-[#200039] text-white font-semibold font-serif text-8xl mb-4 backgroundAttachment: 'scroll'">
+        <main className="flex min-h-screen flex-col bg-gradient-to-b from-[#500889] to-[#200039] ">
             {/* Title */}
-            RECURSOS
+            <h1 className="text-white font-semibold font-serif text-8xl mt-52 justify-center items-center text-center">
+                RECURSOS
+            </h1>
             <div className="max-w-6xl mx-auto overflow-hidden">
                 <div className="p-8">
                     <div className="tracking-wide">
                         {/* Description */}
-                        <h1 className="mt-10 text-white font-bold text-xl text-center">
+                        <h1 className="mt-6 text-white font-bold text-xl text-center">
                             ¡Hola Comunidad!
                         </h1>
                         <p className="mt-4 text-white text-lg text-center">
@@ -63,7 +65,7 @@ const Resources_ACM = () => {
             <div className="flex flex-wrap justify-center gap-4">
                 <div className="w-full sm:w-auto">
                     <button 
-                        className={`bg-violet-900 ${!showGuia ? 'hover:bg-violet-700' : ''} text-xl p-4 rounded m-6 w-56 h-16`}
+                        className={`bg-violet-700 ${!showGuia ? 'hover:bg-violet-400' : ''} text-xl p-4 rounded m-6 w-56 h-16`}
                         onClick={guia}
                     >
                         Guía
@@ -71,7 +73,7 @@ const Resources_ACM = () => {
                 </div>
                 <div className="w-full sm:w-auto">
                     <button 
-                        className={`bg-violet-900 ${!showTutoriales ? 'hover:bg-violet-700' : ''} text-xl p-4 rounded m-6 w-56 h-16`}
+                        className={`bg-violet-700 ${!showTutoriales ? 'hover:bg-violet-400' : ''} text-xl p-4 rounded m-6 w-56 h-16`}
                         onClick={tutoriales}
                     >
                         Tutoriales
@@ -79,7 +81,7 @@ const Resources_ACM = () => {
                 </div>
                 <div className="w-full sm:w-auto">
                     <button 
-                        className={`bg-violet-900 ${!showPresentaciones ? 'hover:bg-violet-700' : ''} text-xl p-4 rounded m-6 w-56 h-16`}
+                        className={`bg-violet-700 ${!showPresentaciones ? 'hover:bg-violet-400' : ''} text-xl p-4 rounded m-6 w-56 h-16`}
                         onClick={presentaciones}
                     >
                         Presentaciones
@@ -87,7 +89,7 @@ const Resources_ACM = () => {
                 </div>
                 <div className="w-full sm:w-auto">
                     <button 
-                        className={`bg-violet-900 ${!showRecomendaciones ? 'hover:bg-violet-700' : ''} text-xl p-4 rounded m-6 w-56 h-16`}
+                        className={`bg-violet-700 ${!showRecomendaciones ? 'hover:bg-violet-400' : ''} text-xl p-4 rounded m-6 w-56 h-16`}
                         onClick={recomendaciones}
                     >
                         Recomendaciones
@@ -96,48 +98,34 @@ const Resources_ACM = () => {
             </div>
 
             {/* Resources ACM */}
-            <section className="min-h-fir flex flex-col item-center justify-center">
+            <section className="min-h-screen flex flex-col">
                 {/* Resources for guides */}
                 {showGuia && (
-                    <div className="mt-6 text-center text-base text-white">
-                        <p> Guias ICPC</p>
-                            <section className="min-h-fit flex flex-col items-baseline justify-center">
-                                <div className="grid grid-cols-3 gap-4 text-center text-white">
-                                    <ol className="text-xl list-decimal col-span-1 m-4">
-                                        <li>ICPC</li>
-                                        <li>ICPC</li>
-                                        <li>ICPC</li>
-                                    </ol>
-                                    <ol className="text-xl list-decimal col-span-1 m-4">
-                                        <li>kolko</li>
-                                        <li>kolko</li>
-                                        <li>kolko</li>
-                                    </ol>
-                                    <ol className="text-xl list-decimal col-span-1 m-4">
-                                        <li>item </li>
-                                        <li>item </li>
-                                        <li>item </li>
-                                    </ol>
-                                </div>
-                            </section>
-
+                    <div className="text-left text-white ml-52 mt-10">
+                    <div className="flex items-center h-24">
+                        <div style={{ borderLeft: '14px solid #D490D6', height: '100%' }} className="flex items-center">
+                        <p className="font-serif text-4xl ml-4 font-bold"> 
+                            Guias ICPC
+                        </p>
+                        </div>
+                    </div>
                     </div>
                 )}
                 {/* Resources for guides */}
                 {showTutoriales && (
-                    <div className="mt-6 text-center text-base text-white">
+                    <div className="text-center text-base text-white">
                         <p> Tutoriales </p>
                     </div>
                 )}
                 {/* Resources for presentations */}
                 {showPresentaciones && (
-                    <div className="mt-6 text-center text-base text-white">
+                    <div className=" text-center text-base text-white">
                         <p> Presentaciones </p>
                     </div>
                 )}
                 {/* Resources for recommendations */}
                 {showRecomendaciones && (
-                    <div className="mt-6 text-center text-base text-white">
+                    <div className=" text-center text-base text-white">
                         <p> Recomendaciones </p>
                     </div>
                 )}
