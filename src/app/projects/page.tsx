@@ -42,7 +42,7 @@ const Projects = () => {
       <section className="min-h-fit flex flex-col items-center justify-center">
         <div className="grid grid-rows-6 grid-cols-8 items-center text-center text-white">
           <h1 className="text-xl tracking-wide font-light sm:text-[7rem] col-start-2 col-span-6 row-start-3">
-            <span className="">Proyectos</span>
+            <p>Proyectos</p>
           </h1>
           <p className="row-start-5 col-start-2 col-span-6 text-justify text-lg font-light">
             Lorem ipsum dolor sit amet consectetur. Leo magna nisi aliquam in lorem enim tortor mattis.
@@ -54,14 +54,14 @@ const Projects = () => {
       </section>
 
       {/* Projects buttons */}
-      <section className="min-h-fit flex flex-col items-center justify-center">
-        <div className="grid grid-rows-2 grid-cols-4 items-center text-center text-2xl font-bold text-black">
+      <section className="min-h-fit min-w-screen flex flex-col items-center justify-center">
+        <div className="grid grid-rows-1 grid-cols-6 items-center text-center text-xl font-bold text-black">
           <div className="row-start-1 col-start-1">
             <span className="invisible">
-              *****Clases algoritmos*****
+              *************************************
             </span>
           </div>
-          <div className="row-start-1 col-start-1 col-span-1 p-5">
+          <div className="row-start-1 col-start-2 col-span-1 p-5">
             {showICPC && (
               <button className="bg-[#dfdfdf] h-10 min-w-full rounded-full">
                 ICPC
@@ -73,7 +73,7 @@ const Projects = () => {
               </button>
             )}
           </div>
-          <div className="row-start-1 col-start-2 col-span-1 p-5">
+          <div className="row-start-1 col-start-3 col-span-1 p-5">
             {showClasesAlgoritmos && (
               <button className="bg-[#dfdfdf] h-10 min-w-full rounded-full">
                 Clases algoritmos
@@ -85,7 +85,7 @@ const Projects = () => {
               </button>
             )}
           </div>
-          <div className="row-start-1 col-start-3 col-span-1 p-5">
+          <div className="row-start-1 col-start-4 col-span-1 p-5">
             {showCommunityHub && (
               <button className="bg-[#dfdfdf] h-10 min-w-full rounded-full">
                 Community Hub
@@ -97,7 +97,7 @@ const Projects = () => {
               </button>
             )}
           </div>
-          <div className="row-start-1 col-start-4 col-span-1 p-5">
+          <div className="row-start-1 col-start-5 col-span-1 p-5">
             {showProyecto4 && (
               <button className="bg-[#dfdfdf] h-10 min-w-full rounded-full">
                 Proyecto 4
@@ -118,8 +118,82 @@ const Projects = () => {
       <section className="min-h-fit flex flex-col items-center justify-center">
         {/* Project: ICPC */}
         {showICPC && (
-          <div className="mt-4 text-center text-lg text-white">
-            <p>ICPC</p>
+          <div className="grid grid-rows-28 grid-cols-24 items-center text-center text-base text-white font-light">
+            <div className="row-start-2 row-span-6 col-start-3 col-span-7 w-7/12 mx-auto">
+              <img className="mx-auto" src="images/logos/ICPC_logo.png" alt="ICPC Logo"></img>
+            </div>
+            <div className="row-start-2 col-start-10 col-span-13">
+              <p className="text-[#96FFF9] text-3xl text-left align-text-top font-bold">
+                ¿QUÉ ES?
+              </p>
+            </div>
+            <div className="row-start-3 row-span-5 col-start-10 col-span-13 text-justify">
+              <p>
+                Lorem ipsum dolor sit amet consectetur. Iaculis enim lorem pellentesque malesuada scelerisque.
+                Maecenas vel mi scelerisque libero non ipsum justo urna. Dignissim sit pretium aliquam lobortis lacus.
+                A ullamcorper id elit vitae sit augue.
+              </p>
+              <br></br>
+              <p>
+                Eu lacus quis odio augue viverra cras donec lacus sed. Convallis elementum risus augue etiam et.
+                Ut morbi sit id vitae et mi lacus neque. Nibh adipiscing viverra purus non aliquam.
+                Porta pretium scelerisque in lacus dui mauris vulputate ut. Nisl in porta vitae eget faucibus arcu blandit quam.
+              </p>
+            </div>
+            <div className="row-start-9 col-start-1 col-span-24">
+              <p className="text-[#96FFF9] text-3xl font-bold">
+                ¿QUÉ HACEMOS COMO ACM?
+              </p>
+            </div>
+            <div className="row-start-11 row-span-6 col-start-15 col-span-8 w-5/6 mx-auto">
+              <img className="mx-auto object-cover" src="images/projects-icpc/primera-fecha.png" alt="ICPC Primera fecha"></img>
+            </div>
+            <div className="row-start-11 row-span-6 col-start-3 col-span-11 text-justify">
+              <p>
+                Lorem ipsum dolor sit amet consectetur. Iaculis enim lorem pellentesque malesuada scelerisque.
+                Maecenas vel mi scelerisque libero non ipsum justo urna. Dignissim sit pretium aliquam lobortis lacus.
+                A ullamcorper id elit vitae sit augue. 
+              </p>
+              <br></br>
+              <p>
+                Eu lacus quis odio augue viverra cras donec lacus sed. Convallis elementum risus augue etiam et.
+                Ut morbi sit id vitae et mi lacus neque. Nibh adipiscing viverra purus non aliquam.
+                Porta pretium scelerisque in lacus dui mauris vulputate ut. Nisl in porta vitae eget faucibus arcu blandit quam. 
+              </p>
+            </div>
+            <div className="row-start-17 row-span-4 col-start-3 col-span-20">
+              <p className="text-[#96FFF9] text-xl font-bold text-left">
+                OBJETIVOS
+              </p>
+              <br></br>
+              <p className="text-justify">
+                Lorem ipsum dolor sit amet consectetur. Iaculis enim lorem pellentesque malesuada scelerisque.
+                Maecenas vel mi scelerisque libero non ipsum justo urna. Dignissim sit pretium aliquam lobortis lacus.
+                A ullamcorper id elit vitae sit augue.
+              </p>
+            </div>
+            <div className="row-start-21 row-span-4 col-start-3 col-span-20">
+              <p className="text-[#96FFF9] text-xl font-bold text-left">
+                RETOS
+              </p>
+              <br></br>
+              <p className="text-justify">
+                Lorem ipsum dolor sit amet consectetur. Iaculis enim lorem pellentesque malesuada scelerisque.
+                Maecenas vel mi scelerisque libero non ipsum justo urna. Dignissim sit pretium aliquam lobortis lacus.
+                A ullamcorper id elit vitae sit augue.
+              </p>
+            </div>
+            <div className="row-start-25 row-span-4 col-start-3 col-span-20">
+              <p className="text-[#96FFF9] text-xl font-bold text-left">
+                LOGROS
+              </p>
+              <br></br>
+              <p className="text-justify">
+                Lorem ipsum dolor sit amet consectetur. Iaculis enim lorem pellentesque malesuada scelerisque.
+                Maecenas vel mi scelerisque libero non ipsum justo urna. Dignissim sit pretium aliquam lobortis lacus.
+                A ullamcorper id elit vitae sit augue.
+              </p>
+            </div>
           </div>
         )}
         {/* Project: Clases de Algoritmos */}
@@ -141,7 +215,12 @@ const Projects = () => {
           </div>
         )}
       </section>
-
+      
+      <section className="invisible">
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+      </section>
     </main>
   );
 }
