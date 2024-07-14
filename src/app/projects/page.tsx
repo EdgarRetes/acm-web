@@ -38,13 +38,16 @@ const Projects = () => {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white"> {/*  from-[#020F46] to-[#0E152A] */}
 
+      {/* Space for navbar */}
+      <section className="h-16 invisible"></section>
+
       {/* Title and description */}
       <section className="min-h-fit flex flex-col items-center justify-center">
-        <div className="grid grid-rows-6 grid-cols-8 items-center text-center text-white">
-          <h1 className="text-xl tracking-wide font-light sm:text-[7rem] col-start-2 col-span-6 row-start-3">
-            <p>Proyectos</p>
-          </h1>
-          <p className="row-start-5 col-start-2 col-span-6 text-justify text-lg font-light">
+        <div className="grid grid-rows-7 grid-cols-24 items-center text-center text-white">
+          <p className="sm:text-[6.8rem] tracking-wide font-light col-start-3 col-span-20 row-start-2 row-span-3">
+            Proyectos
+          </p>
+          <p className="row-start-5 row-span-3 col-start-3 col-span-20 text-justify text-lg font-light">
             Lorem ipsum dolor sit amet consectetur. Leo magna nisi aliquam in lorem enim tortor mattis.
             Dictum auctor quisque mi ac aliquam. Aliquet arcu nec ac mi libero scelerisque pellentesque odio.
             Commodo pharetra ac vitae purus. Enim rutrum metus morbi a diam at interdum aliquet.
@@ -54,7 +57,7 @@ const Projects = () => {
       </section>
 
       {/* Projects buttons */}
-      <section className="min-h-fit min-w-screen flex flex-col items-center justify-center">
+      <section className="min-h-fit flex flex-col items-center justify-center">
         <div className="grid grid-rows-1 grid-cols-6 items-center text-center text-xl font-bold text-black">
           <div className="row-start-1 col-start-1">
             <span className="invisible">
@@ -63,49 +66,49 @@ const Projects = () => {
           </div>
           <div className="row-start-1 col-start-2 col-span-1 p-5">
             {showICPC && (
-              <button className="bg-[#dfdfdf] h-10 min-w-full rounded-full">
+              <button className="bg-[#dfdfdf] h-fit min-w-full rounded-full">
                 ICPC
               </button>
             )}
             {!showICPC && (
-              <button className="bg-[#64FFF6] h-10 min-w-full rounded-full hover:bg-[#dfdfdf]" onClick={icpc}>
+              <button className="bg-[#64FFF6] h-fit min-w-full rounded-full hover:bg-[#dfdfdf]" onClick={icpc}>
                 ICPC
               </button>
             )}
           </div>
           <div className="row-start-1 col-start-3 col-span-1 p-5">
             {showClasesAlgoritmos && (
-              <button className="bg-[#dfdfdf] h-10 min-w-full rounded-full">
+              <button className="bg-[#dfdfdf] h-fit min-w-full rounded-full">
                 Clases algoritmos
               </button>
             )}
             {!showClasesAlgoritmos && (
-              <button className="bg-[#64FFF6] h-10 min-w-full rounded-full hover:bg-[#dfdfdf]" onClick={clasesAlgoritmos}>
+              <button className="bg-[#64FFF6] h-fit min-w-full rounded-full hover:bg-[#dfdfdf]" onClick={clasesAlgoritmos}>
                 Clases algoritmos
               </button>
             )}
           </div>
           <div className="row-start-1 col-start-4 col-span-1 p-5">
             {showCommunityHub && (
-              <button className="bg-[#dfdfdf] h-10 min-w-full rounded-full">
+              <button className="bg-[#dfdfdf] h-fit min-w-full rounded-full">
                 Community Hub
               </button>
             )}
             {!showCommunityHub && (
-              <button className="bg-[#64FFF6] h-10 min-w-full rounded-full hover:bg-[#dfdfdf]" onClick={communityHub}>
+              <button className="bg-[#64FFF6] h-fit min-w-full rounded-full hover:bg-[#dfdfdf]" onClick={communityHub}>
                 Community Hub
               </button>
             )}
           </div>
           <div className="row-start-1 col-start-5 col-span-1 p-5">
             {showProyecto4 && (
-              <button className="bg-[#dfdfdf] h-10 min-w-full rounded-full">
+              <button className="bg-[#dfdfdf] h-fit min-w-full rounded-full">
                 Proyecto 4
               </button>
             )}
             {/*
             {!showProyecto4 && (
-              <button className="bg-[#64FFF6] h-10 min-w-full rounded-full hover:bg-[#dfdfdf]" onClick={proyecto4}>
+              <button className="bg-[#64FFF6] h-fit min-w-full rounded-full hover:bg-[#dfdfdf]" onClick={proyecto4}>
                 Proyecto 4
               </button>
             )}
