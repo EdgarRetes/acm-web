@@ -104,8 +104,8 @@ const Resources_ACM = () => {
                     <div className="text-left text-white ml-52 mt-10">
                     <div className="flex items-center h-24">
                         <div style={{ borderLeft: '14px solid #D490D6', height: '100%' }} className="flex items-center">
-                        <p className="font-serif text-4xl ml-4 font-bold"> 
-                            Guias ICPC
+                        <p className="font-serif text-4xl ml-6 font-bold"> 
+                            GUÍAS ICPC
                         </p>
                         </div>
                     </div>
