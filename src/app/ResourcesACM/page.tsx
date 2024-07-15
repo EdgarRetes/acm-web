@@ -53,7 +53,7 @@ const Resources_ACM = () => {
     }
 
     return (
-        <main className="flex min-h-screen flex-col bg-gradient-to-b from-[#500889] to-[#200039] p-8 font-serif text-base min-h-fit">
+        <main className="flex min-h-screen flex-col bg-gradient-to-b from-[#500889] to-[#200039] p-8 font-serif text-base ">
             {/* Title */}
             <h1 className="text-white font-semibold font-serif text-8xl mt-52 text-center">
                 RECURSOS
