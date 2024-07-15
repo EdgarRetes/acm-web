@@ -1,19 +1,31 @@
+import { Moment } from 'moment';
 import React, { FC, useState } from 'react'
+import useDiaState from '~/app/Hooks/useDiaState';
 import { Event } from '~/app/types/EventCalendarType'
 
 interface Props {
-  event: Event
+  event: Event,
+  onDayChange: (dia: Moment) => void
 }
 
-const EventsList: FC<Props>= ({event}) => {
+const EventsList: FC<Props>= ({event, onDayChange}) => {
+
+  const { setDia } = useDiaState();
+
+  const handleClickEvent = (item: Moment) => {
+    setDia(item);
+    onDayChange(item)
+  }
 
   return (
-    <div className='flex flex-col mb-2 hover:bg-slate-400 rounded-xl'>
+    <div className='flex flex-col mb-2 rounded-xl' onClick={() => handleClickEvent(event.date)}>
       <div className={`flex items-center`}>
-        <div className="w-1/2 h-[10rem] bg-slate-700 flex items-center justify-center mr-3 rounded-l-lg">
+        <div className="w-1/2 h-[10rem] bg-slate-700 flex items-center justify-center rounded-l-lg">
           IMG
         </div>
-        {event.title}
+        <div className='hover:bg-slate-400 w-full rounded-r-lg pl-3 h-[10rem] flex items-center'>
+          {event.title}
+        </div>
       </div>
     </div>
   )

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import EventCalendar from '../_components/calendar_components/EventCalendar'
-import moment from 'moment'
 import { EventsData } from '../types/EventCalendarType'
 
 const d: EventsData = [ 

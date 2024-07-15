@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { clientCallTypeToProcedureType } from '@trpc/client'
-import { Button, DialogContent, DialogContentText, Grid, Typography } from '@mui/material'
+import { Button, Grid, Typography } from '@mui/material'
 import {FC} from 'react'
 import moment, { Moment } from 'moment'
 import { EventsData } from '~/app/types/EventCalendarType'
@@ -12,7 +12,6 @@ import Day from './Days'
 import ExtraDays from './ExtraDays'
 import useDiaState from '~/app/Hooks/useDiaState'
 import EventsList from './EventsList'
-import DetallesEvento from './DetallesEvento'
 import NewEventDialog from './NewEventDialog'
 
 interface Props {
@@ -43,16 +42,15 @@ const EventCalendar: FC<Props> = ({data, onDataChange}) =>  {
 
     const [showNewEventDialog, setShowNewEventDialog] = useState(false)
 
-
     const handleDayChange = (newDay: Moment) => {
       setDia(newDay)
     }
 
   return (
     <div className='bg-gradient-to-t from-[#500889] to-[#440674] flex flex-col items-center'>
-      <div className='flex justify-center items-center pb-5 h-full'>
+      <div className='flex flex-col md:flex-row justify-center items-center pb-3 h-full'>
             {/* Display día seleccionado */}
-            <div className={`w-1/3 h-[100vh] mt-[8rem] bg-[#8620b6] rounded-l-2xl flex justify-end items-center flex-col`}>
+            <aside className={`w-1/3 h-[100vh] mt-[8rem] bg-[#8620b6] rounded-l-2xl hidden md:flex justify-end items-center flex-col`}>
                 <div className='felx h-1/2 items-end mb-5'>
                   <Typography className='text-[10rem] text-white typo-calendario flex justify-center'>
                     {dia ? dia.format('DD') : moment().format('DD')}
@@ -71,14 +69,14 @@ const EventCalendar: FC<Props> = ({data, onDataChange}) =>  {
                   </Typography>
                   
                 </div>
-            </div>
+            </aside>
 
           {/* Calendario pt: derecha */}
-            <div className='bg-[#dfb7ff] bg-opacity-60 w-1/2 flex flex-col justify-center items-center rounded-r-2xl mt-[8rem] h-[100vh]'>
+            <div className='bg-[#dfb7ff] bg-opacity-60 w-11/12 md:w-1/2 flex flex-col justify-center items-center rounded-lg md:rounded-l-none mt-[8rem] h-[100vh] pr-1'>
                 {/* Controls */}
                 <Controls changeMonth={changeMonth} date={date}/>
                 {/* Calendar */}
-                <Grid container >
+                <Grid container>
                     {daysGrid.map((item, i) => (item?.no ? 
                         <Day 
                           key={i} 
@@ -92,12 +90,30 @@ const EventCalendar: FC<Props> = ({data, onDataChange}) =>  {
                     )}
                 </Grid>
             </div>
+
+            {/* Vista celular */}
+            <div className='w-11/12 md:hidden mt-3 bg-[#8620b6] rounded-lg p-2 text-white flex flex-col'>
+              <div className='flex'>
+                <Typography className='text-lg typo-calendario mr-3'>
+                  {dia ? dia.format('dddd').toUpperCase() : moment().format('dddd').toUpperCase()}
+                </Typography>
+                <Typography className='text-lg text-white typo-calendario'>
+                  {dia ? dia.format('DD') : moment().format('DD')}
+                </Typography>
+              </div>
+              <Typography className=' text-white typo-calendario text-lg'>
+                {data.map((e) => (dia ? ((e.date.format('DD') === dia.format('DD')) ? e.title : null) : (((e.date.format('DD') === moment().format('DD')) ? e.title : null))))}
+              </Typography>
+              <Typography className=' text-white typo-calendario text-md'>
+                {data.map((e) => (dia ? ((e.date.format('DD') === dia.format('DD')) ? e.content : null) : (((e.date.format('DD') === moment().format('DD')) ? e.content : null))))}
+              </Typography>
+            </div>
             
       </div>
 
         {/* Añade eventos */}
         <div className='w-10/12 flex justify-end'>
-          <Button className='text-white bg-[#8620b6] rounded-full hover:bg-[#dfb7ff]' onClick={() => setShowNewEventDialog(true)}>
+          <Button className='text-white bg-[#8620b6] rounded-full hover:bg-[#dfb7ff] mb-2' onClick={() => setShowNewEventDialog(true)}>
             + Evento
           </Button>
         </div>
@@ -108,13 +124,19 @@ const EventCalendar: FC<Props> = ({data, onDataChange}) =>  {
             />
 
         {/* Lista de eventos */}
-        <Grid className='mb-5 w-10/12 flex'>
-          <div className='w-1/3'>
-            {data.map((e) => (
-              <EventsList event={e}/>
-            ))}
-          </div>
-        </Grid>
+        <h1 className='text-4xl typo-calendario mb-5 text-white'>
+            Eventos pasados
+        </h1>
+          <Grid className='hidden md:flex mb-5 w-10/12 justify-between'>
+            <div className='w-full md:w-1/3'>
+              {data.map((e) => (
+                <EventsList event={e} onDayChange={handleDayChange}/>
+              ))}
+            </div>
+            <div className='w-2/3 bg-slate-600 h-[10rem] ml-2 rounded-lg'>
+
+            </div>
+          </Grid>
           
     </div>
   )

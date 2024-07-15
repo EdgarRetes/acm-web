@@ -39,22 +39,21 @@ const Day: FC<Props> = ({daysGridLenght, i, item, events, onDayChange}) => {
   }
 
     return (
-    <Grid item textAlign='center' height='8rem' overflow='auto' width={`${100/7}%`} className='flex flex-col p-1' >
-        {i < 7 && <>
-            <Typography variant='caption' gutterBottom className='text-white text-lg'>
-                {weekDays[i]}
-            </Typography> 
-        </>}
+    <Grid item textAlign='center' height='8rem' overflow='auto' width={`${100/7}%`} className='flex flex-col p-1 overflow-visible items-center' >
+        {i < 7 && 
+          <>
+              <Typography variant='caption' gutterBottom className='text-white text-lg '>
+                  {weekDays[i]}
+              </Typography> 
+          </>}
 
-        
-
-        <div className='  w-[4.5rem] relative h-[4.5rem]  hover:bg-[#d57aef] hover:bg-opacity-50 rounded-full ml-2'>
+        <div className='  w-[3rem] h-[3rem] relative md:w-[4.5rem] md:h-[4.5rem]  hover:bg-[#d57aef] hover:bg-opacity-50 rounded-full ml-2'>
           <div className='-ml-2'>
-            <Typography variant='caption' className={` flex absolute ${isSameDate ? 'bg-[#d57aef] hover:bg-[#ffacff] bg-opacity-70 hover:opacity-100' : ''} text-slate-950 h-[4.5rem] w-[4.5rem] items-center justify-center text-3xl mx-2  rounded-full typo-calendario cursor-pointer`}
+            <Typography variant='caption' className={` flex absolute ${isSameDate ? 'bg-[#d57aef] hover:bg-[#ffacff] bg-opacity-70 hover:opacity-100' : ''}  text-slate-950 w-[3rem] h-[3rem] md:h-[4.5rem] md:w-[4.5rem] items-center justify-center text-2xl md:text-3xl mx-2  rounded-full typo-calendario cursor-pointer`}
               gutterBottom
               onClick={() => handleClickEvent(item.date)} // [CHANGE] autentificación y botón en otro extremo / lugar | setShowNewEventDialog(true)
             >  
-                {item.no}
+                {item.date.format('DD')}
             </Typography>
 
             {/* Events */}
