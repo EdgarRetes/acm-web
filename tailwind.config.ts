@@ -40,7 +40,7 @@ export default {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
       },
-      ...generateGrid(28),
+      ...generateGrid(50),
     },
   },
   plugins: [flowbite.plugin(),],
