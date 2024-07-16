@@ -7,11 +7,17 @@ export type DaysGrid = {
 }
 
 export type Event = {
-    id: number;
+    _id: number;
     title: string;
     content: string;
     date: Moment; // | Date 
-    color?: string;
 }
+// export type Events_definition = {
+//     id: number,
+//     title: string,
+//     content: string,
+//     date: string,
+//     userId: string,
+// }
 
 export type EventsData = Array<Event>;

@@ -18,6 +18,8 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
   const [content, setContent] = useState('')
   const [fecha, setFecha] = useState<Dayjs | null>(null)
   
+  
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     onClose?.({}, 'escapeKeyDown')
@@ -26,6 +28,8 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
     addNewEvent(title, content, fechaEvento)
   }
   
+  
+
   return (
     <Dialog {...rest} onClose={onClose}>
       <Divider />

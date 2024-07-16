@@ -22,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <Navbar>
-          <Signin/>
-        </Navbar>
+        <div className="pb-16">
+          <Navbar>
+            <Signin/>
+          </Navbar>
+        </div>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
