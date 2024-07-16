@@ -1,10 +1,26 @@
+'use client';
+
 import Link from "next/link";
 
 import { CreatePost } from "~/app/_components/create-post";
 import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
+import { useState } from "react";
+
+import CollaboratorsForm from "~/app/_components/collaborators-form";
 
 export default async function Collaborators() {
+
+    const [name,setName] = useState("");
+    const [career,setCareer] = useState("");
+    const [semester,setSemester] = useState("");
+
+    function create_collaborator(){
+        console.log({
+            name,career,semester
+        })
+    }
+
     return(
         <main className=" relative min-h-screen items-center justify-center bg-gradient-to-b from-blue-950 to-slate-900">
             <section className="min-h-screen items-center justify-center">
@@ -207,6 +223,7 @@ export default async function Collaborators() {
                         </h3>
                     </div>
                 </div>
+                <CollaboratorsForm/>
             </section>
         </main>
     );
