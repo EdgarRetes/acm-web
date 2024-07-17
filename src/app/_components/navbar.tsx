@@ -1,13 +1,18 @@
+'use client'
 import Link from 'next/link';
-import { getServerAuthSession } from "~/server/auth";
 
 
-export default async function Navbar() {  
+export default async function Navbar({
+  children,
+}: 
+  {
+    children: React.ReactNode;
+  }
+) {  
 
-  const session = await getServerAuthSession();
   return (
-  <nav className="bg-gray-800 p-4 pl-0 z-50 fixed w-screen">
-    <div className="pr-12 pl-2">
+  <nav className={` pl-0 z-50 w-full fixed`}>
+    <div className="pr-12 pl-2 bg-slate-800">
       <div className="relative flex items-center justify-between h-16">
         <div className="flex-1 flex justify-center sm:items-stretch sm:justify-start">
           <div className="hidden sm:block sm:ml-6">
@@ -21,7 +26,7 @@ export default async function Navbar() {
               <Link href="/about-us" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Sobre Nosotros
               </Link>
-              <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="/events" className="text-gray-300 hover:bg-gray-700 hover:bg-opacity-40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Eventos
               </Link>
               <Link href="/projects" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
@@ -33,21 +38,15 @@ export default async function Navbar() {
               <Link href="/collaborators-page" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Colaboradores
               </Link>
-              <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:bg-opacity-40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Contacto
               </Link>
             </div>
           </div>
         </div>
+        {/* Sing in button */}
+        {children}
 
-        <div>
-          <Link
-                href={session ? "/api/auth/signout" : "/api/auth/signin"}
-                className="text-gray-300 rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/50 w-full"
-              >
-                {session ? "Sign out" : "Sign in"}
-          </Link>
-        </div>
       </div>
     </div>
   </nav>
