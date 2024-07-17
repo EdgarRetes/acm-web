@@ -6,6 +6,10 @@
   font-family: "Black Ops One";
   src: url("_fonts/BlackOpsOne-Regular.ttf");
 }
+@font-face {
+  font-family: "Manrope";
+  src: url("_fonts/Manrope-VariableFont_wght.ttf");
+}
 
 .acm {
   font-family: "Black Ops One", sans-serif;
@@ -15,4 +19,8 @@
 
 .test-border {
   border: 5px solid red;
+}
+.typo-calendario {
+  font-family: "Manrope";
+  font-weight: bold;
 }
