@@ -1,6 +1,6 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { DaysGrid } from "../types/EventCalendarType";
+import { DaysGrid } from "../../types/EventCalendarType";
 
 export default function useEventCalendar() {
   const [date, setDate] = useState(moment());

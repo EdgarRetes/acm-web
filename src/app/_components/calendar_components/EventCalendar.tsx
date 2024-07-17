@@ -5,10 +5,10 @@ import { Button, Grid } from '@mui/material'
 import {FC} from 'react'
 import moment, { Moment } from 'moment'
 import { EventsData, Event } from '~/app/types/EventCalendarType'
-import useEventCalendar from '~/app/Hooks/useEventCalendar'
+import useEventCalendar from '../Hooks/useEventCalendar'
 import Controls from './Controls'
 import ExtraDays from './ExtraDays'
-import useDiaState from '~/app/Hooks/useDiaState'
+import useDiaState from '../Hooks/useDiaState'
 import EventsList from './EventsList'
 import NewEventDialog from './NewEventDialog'
 import { api } from '~/trpc/react'
@@ -166,8 +166,28 @@ const EventCalendar: FC<Props> = ({event_data, onDataChange}) =>  {
                 <EventsList event={e} onDayChange={handleDayChange}/>
               ))}
             </div>
-            <div className='w-2/3 bg-slate-600 h-[10rem] ml-2 rounded-lg'>
-
+            <div className='w-2/3 bg-[#8620b6] h-[30rem] ml-2 rounded-lg flex flex-col'>
+              <div className='h-1/3 w-full overflow-hidden'>
+                <img src={'images/backgrounds/random_tech.avif'} className='object-cover w-full rounded-lg'/>
+              </div>
+              <div className='flex flex-col mt-2 p-2'>
+                <div className='flex'>
+                  <div className='text-2xl text-white typo-calendario'>
+                    {dia ? dia.format('DD') : moment().format('DD')}
+                  </div>
+                  <div className='text-2xl text-white typo-calendario ml-2'>
+                    {dia ? dia.format('dddd').toUpperCase() : moment().format('dddd').toUpperCase()}
+                  </div>
+                </div>
+                <div>
+                  <div className=' text-white typo-calendario text-2xl mt-3'>
+                    {my_events.map((e) => (dia ? ((e.date.format('DD') === dia.format('DD')) ? e.title : null) : (((e.date.format('DD') === moment().format('DD')) ? e.title : null))))}
+                  </div>
+                  <div className=' text-white typo-calendario text-xl'>
+                    {my_events.map((e) => (dia ? ((e.date.format('DD') === dia.format('DD')) ? e.content : null) : (((e.date.format('DD') === moment().format('DD')) ? e.content : null))))}
+                  </div>
+                </div>
+              </div>
             </div>
           </Grid>
           

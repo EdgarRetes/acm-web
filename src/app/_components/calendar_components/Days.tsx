@@ -4,7 +4,7 @@ import {FC, useState} from 'react';
 import { DaysGrid, EventsData } from '~/app/types/EventCalendarType';
 import Event from './Event';
 import NewEventDialog from './NewEventDialog';
-import useDiaState from '~/app/Hooks/useDiaState';
+import useDiaState from '../Hooks/useDiaState';
 
 interface Props {
     i: number;
