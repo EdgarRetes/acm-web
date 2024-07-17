@@ -146,7 +146,7 @@ const Projects = () => {
               </p>
             </div>
             <div className="row-start-14 row-span-6 col-start-14 col-span-9 w-5/6 mx-auto">
-              <img className="mx-auto object-cover" src="images/projects-icpc/primera-fecha.png" alt="ICPC Primera fecha"></img>
+              <img className="mx-auto object-cover" src="images/projects-icpc/primera-fecha.PNG" alt="ICPC Primera fecha"></img>
             </div>
             <div className="row-start-14 row-span-6 col-start-3 col-span-11 text-justify">
               <p>
