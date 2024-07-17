@@ -1,7 +1,7 @@
 import { Moment } from 'moment';
 import React, { FC, useState } from 'react'
 import { Event } from '~/app/types/EventCalendarType'
-import useDiaState from '../hooks/useDiaState';
+import useDiaState from '../Hooks/useDiaState';
 
 interface Props {
   event: Event,
