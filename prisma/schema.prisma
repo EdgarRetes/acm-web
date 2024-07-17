@@ -67,6 +67,8 @@ model User {
     accounts      Account[]
     sessions      Session[]
     posts         Post[]
+
+    Collaborator Collaborator[]
 }
 
 model VerificationToken {
@@ -83,6 +85,17 @@ model Event {
     content String
     date    String
     userId  String
+
+    @@index([userId])
+}
+
+model Collaborator {
+    id       String @id @default(cuid())
+    name     String
+    career   String
+    semester String
+    made_by  User   @relation(fields: [userId], references: [id])
+    userId   String
 
     @@index([userId])
 }
