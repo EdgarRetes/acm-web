@@ -8,7 +8,6 @@ generator client {
 datasource db {
   provider = "postgresql"
   url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
 model Post {
@@ -60,6 +59,7 @@ model User {
     accounts      Account[]
     sessions      Session[]
     posts         Post[]
+    collaborators Collaborator[]
 }
 
 model VerificationToken {
@@ -68,4 +68,15 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Collaborator {
+    id          String    @id @default(cuid())
+    name        String      
+    career      String
+    semester    String
+    made_by     User    @relation(fields:[userId], references: [id])
+    userId      String
+
+    @@index([userId])
 }
