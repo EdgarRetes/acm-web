@@ -26,6 +26,9 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
     const momentFecha = dayjs(fecha).toDate()
     const fechaEvento = moment(momentFecha)
     addNewEvent(title, content, fechaEvento)
+    setTitle('');
+    setContent('');
+    setFecha(null);
   }
   
   
@@ -34,16 +37,16 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
     <Dialog {...rest} onClose={onClose}>
       <Divider />
       <form onSubmit={handleSubmit}>
-        <DialogContent>
-          <TextField 
-            variant = 'outlined'
-            label='Titulo'
-            type='text'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-          <TextField 
+        <DialogContent className='flex flex-col w-full md:w-[30rem] gap-5'>
+            <TextField
+              variant = 'outlined'
+              label='Titulo'
+              type='text'
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          <TextField
             variant = 'outlined'
             label='Contenido'
             type='text'
@@ -67,7 +70,12 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => onClose?.({}, 'escapeKeyDown')}>Cancelar</Button>
+          <Button onClick={() => {
+            setTitle('');
+            setContent('');
+            setFecha(null);
+            onClose?.({}, 'escapeKeyDown')
+            }}>Cancelar</Button>
           <Button type='submit'>Añadir</Button>
         </DialogActions>
       </form>

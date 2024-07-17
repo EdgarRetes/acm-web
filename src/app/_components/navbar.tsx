@@ -2,14 +2,10 @@
 import Link from 'next/link';
 
 
-export default async function Navbar({
-  children,
-}: 
-  {
-    children: React.ReactNode;
-  }
+export default function Navbar(
+{children,}
+  :{children: React.ReactNode;}
 ) {  
-
   return (
   <nav className={` pl-0 z-50 w-full fixed`}>
     <div className="pr-12 pl-2 bg-slate-800">

@@ -20,10 +20,10 @@ const EventsList: FC<Props>= ({event, onDayChange}) => {
   return (
     <div className='flex flex-col mb-2 rounded-xl' onClick={() => handleClickEvent(event.date)}>
       <div className={`flex items-center`}>
-        <div className="w-1/2 h-[10rem] bg-slate-700 flex items-center justify-center rounded-l-lg">
+        <div className="w-1/2 h-[5rem] md:h-[10rem] bg-slate-700 flex items-center justify-center rounded-l-lg">
           <img src={'images/backgrounds/random_tech.avif'} className='object-cover h-full rounded-l-lg' />
         </div>
-        <div className='hover:bg-[#a371cb] w-full rounded-r-lg pl-3 h-[10rem] flex items-center'>
+        <div className='hover:bg-[#FFACFF] bg-[#a371cb] w-full rounded-r-lg pl-3 h-[5rem] md:h-[10rem] flex items-center'>
           {event.title}
         </div>
       </div>

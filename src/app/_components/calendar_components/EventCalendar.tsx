@@ -15,11 +15,10 @@ import { api } from '~/trpc/react'
 import Day from './Days'
 
 interface Props {
-    event_data: EventsData
-    onDataChange?: (events: EventsData) => void;
+    children: React.ReactNode;
 }
 
-const EventCalendar: FC<Props> = ({event_data, onDataChange}) =>  {
+const EventCalendar: FC<Props> = ({  children}) =>  {
     const {date, changeMonth, daysGrid} = useEventCalendar();
     const { dia, setDia } = useDiaState();
     const [showNewEventDialog, setShowNewEventDialog] = useState(false)
@@ -31,7 +30,7 @@ const EventCalendar: FC<Props> = ({event_data, onDataChange}) =>  {
       console.log(error)
     }
     if (isLoading) {
-      return <p>is Loading</p>
+      return <p className='h-screen w-full bg-gradient-to-t from-[#500889] to-[#440674] text-white flex items-center justify-center typo-calendario text-xl'>Loading...</p>
     }
 
     const handleDayChange = (newDay: Moment) => {
@@ -43,7 +42,6 @@ const EventCalendar: FC<Props> = ({event_data, onDataChange}) =>  {
     const addNewEventHandler = (title: string, content: string, date: Moment) => {
       
       createEvent.mutate({
-        // id: 2,
         title,
         content,
         date: date.format('YYYY-MM-DD'),
@@ -56,17 +54,6 @@ const EventCalendar: FC<Props> = ({event_data, onDataChange}) =>  {
           alert(`Evento: ${event_data.title} creado`)
         },
     })
-      
-      if(title !== '' && content !== '') {
-        const newDataArray = [...event_data]
-        newDataArray.push({
-          _id: 1,
-          title, 
-          content,
-          date,
-        })
-        onDataChange?.(newDataArray)
-      }
     }
     
     const my_events: EventsData = data?.map((event) => {
@@ -145,11 +132,16 @@ const EventCalendar: FC<Props> = ({event_data, onDataChange}) =>  {
       </div>
 
         {/* Añade eventos */}
-        <div className='w-10/12 flex justify-end'>
-          <button className='text-white bg-[#8620b6] rounded-full hover:bg-[#dfb7ff] mb-2 p-2' onClick={() => setShowNewEventDialog(true)}>
+          <div className='w-10/12 flex justify-end'>
+            <button className='rounded-full' onClick={() => {setShowNewEventDialog(true)}}>
+              {children}
+            </button>
+          </div>
+        {/* <div className='w-10/12 flex justify-end'>
+          <button className='text-white bg-[#8620b6] rounded-full hover:bg-[#dfb7ff] mb-2 p-2' onClick={() => {setShowNewEventDialog(true)}}>
             + Evento
-          </button>
-        </div>
+          </button> 
+        </div> */}
         <NewEventDialog 
             open={showNewEventDialog} 
             onClose={() => setShowNewEventDialog(false)} 
@@ -160,13 +152,13 @@ const EventCalendar: FC<Props> = ({event_data, onDataChange}) =>  {
         <h1 className='text-4xl typo-calendario mb-5 text-white'>
             Eventos pasados
         </h1>
-          <Grid className='hidden md:flex mb-5 w-10/12 justify-between'>
+          <Grid className='flex mb-5 w-10/12 justify-between'>
             <div className='w-full md:w-1/3'>
               {my_events.map((e) => (
                 <EventsList event={e} onDayChange={handleDayChange}/>
               ))}
             </div>
-            <div className='w-2/3 bg-[#8620b6] h-[30rem] ml-2 rounded-lg flex flex-col'>
+            <div className='w-2/3 bg-[#8620b6] h-[30rem] ml-4 rounded-lg hidden md:flex flex-col'>
               <div className='h-1/3 w-full overflow-hidden'>
                 <img src={'images/backgrounds/random_tech.avif'} className='object-cover w-full rounded-lg'/>
               </div>
