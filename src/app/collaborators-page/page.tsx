@@ -8,7 +8,7 @@ import { api } from "~/trpc/server";
 import { useState } from "react";
 
 import CollaboratorsForm from "~/app/_components/collaborators-form";
-import { useCollaborators } from "~/app/_components/Hooks/useCollaborators";
+import { useCollaborators } from "~/app/_components/Hooks/useCollaborator";
 
 export default function Collaborators() {
 
