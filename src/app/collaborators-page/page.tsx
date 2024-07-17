@@ -8,17 +8,18 @@ import { api } from "~/trpc/server";
 import { useState } from "react";
 
 import CollaboratorsForm from "~/app/_components/collaborators-form";
+import { useCollaborators } from "~/app/_components/hooks/useCollaborators";
 
-export default async function Collaborators() {
+export default function Collaborators() {
 
-    const [name,setName] = useState("");
-    const [career,setCareer] = useState("");
-    const [semester,setSemester] = useState("");
+    const {data,error,isLoading} = useCollaborators();
 
-    function create_collaborator(){
-        console.log({
-            name,career,semester
-        })
+    if(error){
+        console.log(error)
+    }
+
+    if(isLoading){
+        return <p>Is Loading</p>
     }
 
     return(
@@ -50,178 +51,31 @@ export default async function Collaborators() {
                 </div>
             </section>
             <section className="min-h-screen items-center justify-center text-center">
-                <div className="grid grid-cols-10 grid-rows-12 font-mono space-y-5" style={{ gridTemplateRows: '50px auto' }}>
-                    <h1 className="text-white row-start-1 col-start-2 col-span-5 text-4xl font-bold border-x-blue-700 border-l-8 border-spacing-12">
+                <div className="grid grid-cols-8 grid-rows-12 font-mono space-y-5 px-36 py-10" style={{ gridTemplateRows: '50px auto' }}>
+                    <h1 className="text-white row-start-1 col-start-1 col-span-5 text-4xl font-bold border-x-blue-700 border-l-8 border-spacing-12">
                     <span className="invisible">
                         ..
                     </span>
                         Conoce a nuestros colaboradores
                     </h1>
+                    <span className="row-start-1 col-start-6 col-span-3"/>
+                    {
+                        data?.map(collaborator =>{
+                            return(
+                                <div className="flex flex-col items-center justify-center p-4 hover:bg-blue-900 rounded-full" key={collaborator.id}>
+                                    <h2 className="text-sky-500 font-bold">
+                                        {collaborator.name}
+                                    </h2>
+                                    <img src="images/temp/circle-temp.png"/>
+                                    <h3 className="text-white">
+                                        <p>{collaborator.career}</p>
+                                        <p>{collaborator.semester}</p>
+                                    </h3>
+                                </div>
+                            )
 
-                    {/* Primera fila */}
-                    <div className="flex flex-col items-center justify-center row-start-2 col-start-2 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-2 col-start-3 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-2 col-start-4 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-2 col-start-5 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-2 col-start-6 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-2 col-start-7 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-2 col-start-8 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-2 col-start-9 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-
-                    {/* Segunda fila */}
-                    <div className="flex flex-col items-center justify-center row-start-3 col-start-2 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-
-                    <div className="flex flex-col items-center justify-center row-start-3 col-start-3 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-3 col-start-4 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-3 col-start-5 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-3 col-start-6 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-3 col-start-7 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-3 col-start-8 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center row-start-3 col-start-9 p-4 hover:bg-blue-900 rounded-full">
-                        <h2 className="text-sky-500 font-bold">
-                            Nombre
-                        </h2>
-                        <img src="images/temp/circle-temp.png"/>
-                        <h3 className="text-white">
-                            <p>Carrera</p>
-                            <p>Semestre</p>
-                        </h3>
-                    </div>
+                        })
+                    }
                 </div>
                 <CollaboratorsForm/>
             </section>

@@ -8,6 +8,7 @@ import {
 } from "~/server/api/trpc";
 
 export const collaboratorsRouter = createTRPCRouter({
+
     createCollaborator: protectedProcedure.input(z.object({
         name:z.string(),
         career:z.string(),
@@ -22,6 +23,11 @@ export const collaboratorsRouter = createTRPCRouter({
             }
         });
         return collaborator;
+    }),
+
+    getCollaborators: protectedProcedure.query(async () => {
+        const collaborators = await db.collaborator.findMany();
+        return collaborators;
     }),
 
 });
