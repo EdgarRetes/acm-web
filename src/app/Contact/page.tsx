@@ -3,9 +3,9 @@ import { ContactForm } from "~/app/_components/contact-form";
 
 const Contact = () => {
     return (
-        <main className="min-h-screen w-full flex items-center justify-center bg-cover bg-no-repeat bg-center " style={{backgroundImage: 'url(images/backgrounds/contacto.png)', backgroundSize: 'cover', backgroundAttachment: 'fixed'}}>
+        <main className="min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-[#51088A] to-[#200039] text-white ">
             <div className="grid grid-cols-2 grid-rows-[200px,400px,100px] mx-36">
-                <section className="text-white col-span-2 row-start-1 mt-20 -ml-10">
+                <section className="col-span-2 row-start-1 mt-20 -ml-10">
                     <h1 className="py-8 text-5xl font-sanz">
                         Contáctanos
                     </h1>
@@ -23,7 +23,7 @@ const Contact = () => {
                     <ContactForm />
                 </section>
 
-                <section className="col-start-2 row-start-2 h-96 w-96 mt-14 ml-16 bg-[#8100A1] text-white p-10">
+                <section className="col-start-2 row-start-2 h-96 w-96 mt-14 ml-16 bg-[#8100A1] p-10">
                     <div>
                         <h4 className="mb-10 text-xl ">
                             Informacion de contacto
