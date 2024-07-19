@@ -1,10 +1,13 @@
 "use client";
 
-import Link from 'next/link';
-import { FormEvent } from 'react';
+import { FormEvent, useRef } from 'react';
+import Swal from 'sweetalert2'
 
 export function ContactForm() {
 
+    {/*Send to email*/} 
+    const formRef = useRef<HTMLFormElement>(null);
+    
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
@@ -28,28 +31,44 @@ export function ContactForm() {
             }
             const result = await response.json();
             if (result.success) {
-                console.log(result);
+                Swal.fire({
+                    title: "¡Mensaje enviado con éxito!",
+                    text: "Gracias por contactarnos. Nuestro equipo te responderá lo antes posible.",
+                    icon: "success"
+                }).then(() => {
+                    formRef.current?.reset();
+                });
             }
         } catch (error) {
             console.error("Error submitting the form:", error);
         }
     }
 
-
     return(
-        <form onSubmit={handleSubmit} className='py-4 mt-4 flex flex-col gap-5 text-white'>
+        <form ref={formRef} onSubmit={handleSubmit} className='py-4 mt-4 flex flex-col gap-5 text-white'>
+
+            {/*Contact Form*/} 
+
             <div className='flex flex-col'>
-                <label className='block'>Nombre</label>
-                <input name='name' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white  bg-transparent w-96 focus:ring-0 focus:border-white' type="text"></input>
+                <label className='block font-semibold'>Nombre</label>
+                <input name='name' autoComplete='off' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-96 focus:ring-0 focus:border-white' type="text" required/>
             </div>
             <div>
-                <label className='block'>Email</label>
-                <input name='email' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-96 focus:ring-0 focus:border-white' type="text"></input>
+                <label className='block font-semibold'>Email</label>
+                <input name='email' autoComplete='off' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-96 focus:ring-0 focus:border-white' type="email" required/>
             </div>
             <div>
-                <label className='block'>Mensaje</label>
-                <textarea name='message' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-96 focus:ring-0 focus:border-white py-4'></textarea>
+                <label className='block font-semibold'>Mensaje</label>
+                <textarea name='message' autoComplete='off' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-96 focus:ring-0 focus:border-white py-4' required/>
             </div>
             <button className='bg-[#8100A1] p-1 w-32 rounded-2xl ml-32 hover:bg-[#601982] hover:border-[#66198A] hover:border-2 hover:shadow-[#8F35BA] hover:shadow-lg' type='submit'>Enviar</button>
+
+            {/*Email customizations*/}
+
+            {/*Email Subject line*/}
+            <input type="hidden" name="subject" value="Mensaje nuevo: Formulario de contacto ACM" />
+            {/*From Name*/}
+            <input type="hidden" name="from_name" value="Contacto ACM"/>
+
         </form>
 )};
