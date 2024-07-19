@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import React, { useState } from 'react';
-import { Carrusel } from "~/app/_components/carousel_icpc";
+import { Carrusel_ICPC } from "~/app/_components/carousel_icpc";
+import { Carrusel_alg } from "~/app/_components/carousel_alg";
 
 const Projects = () => {
 
@@ -173,14 +174,31 @@ const Projects = () => {
               </p>
             </div>
             <div className="row-start-22 row-span-7 col-start-3 col-span-10 flex justify-center items-center">
-              <Carrusel/>
+              <Carrusel_ICPC/>
             </div>
           </div>
         )}
         {/* Project: Clases de Algoritmos */}
         {showClasesAlgoritmos && (
-          <div className="mt-4 text-center text-lg text-white">
-            <p>Clases Algoritmos</p>
+          <div className="grid grid-rows-13 grid-cols-24 items-center text-center text-lg text-white font-light">
+            <div className="row-start-2 col-start-3 col-span-20">
+              <p className="text-indigo-600 text-3xl align-text-top font-bold">
+                NUESTRAS CLASES DE ALGORITMOS
+              </p>
+            </div>
+            <div className="row-start-4 row-span-10 col-start-14 col-span-8 text-justify">
+              <p>
+              En el mundo de la programación competitiva es necesario conocer diversos algoritmos
+              y estructuras de datos para resolver los problemas que se plantean en los concursos.
+              Es por ello que, a través de clases durante semana Tec, hemos empezado a introducir a los
+              colaboradores en los temas de programación competitiva. Las presentaciones usadas
+              en las clases anteriores se pueden encontrar en la página
+              de <Link className="underline text-indigo-400 hover:bg-indigo-900" href={"/ResourcesACM"}>recursos</Link>.
+              </p>
+            </div>
+            <div className="row-start-4 row-span-10 col-start-3 col-span-10 flex justify-center items-center">
+              <Carrusel_alg/>
+            </div>
           </div>
         )}
         {/* Project: Community Hub */}
