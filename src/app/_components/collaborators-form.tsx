@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { api } from "~/trpc/react";
+import { UploadButton } from "~/utils/uploadthing";
 
 export default function CollaboratorRequestsForm() {
     
@@ -107,7 +108,19 @@ export default function CollaboratorRequestsForm() {
                         />
                     </label>
                 </div> 
-
+                <UploadButton
+                    endpoint="imageUploader"
+                    onClientUploadComplete={(res) => {
+                    // Do something with the response
+                    console.log("Files: ", res);
+                    alert("Upload Completed");
+                    }}
+                    onUploadError={(error: Error) => {
+                    // Do something with the error.
+                    alert(`ERROR! ${error.message}`);
+                    }}
+                />
+                
                 <button type="submit" className="btn-class bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Registrarse como colaborador
                 </button>

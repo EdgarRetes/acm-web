@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import { TRPCReactProvider } from "~/trpc/react";
 import Signin from "./_components/Singin";
 import ClientSessionProvider from "./_components/clientProvider";
+import "@uploadthing/react/styles.css";
 
 export const metadata = {
   title: "ACM | Web Page",
