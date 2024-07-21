@@ -1,11 +1,13 @@
 'use client'
 import Link from 'next/link';
+import { useAdmin } from '~/app/_components/Hooks/isAdmin';
 
 
 export default function Navbar(
 {children,}
   :{children: React.ReactNode;}
 ) {  
+  const { isAdmin } = useAdmin();
   return (
   <nav className={` pl-0 z-50 w-full fixed`}>
     <div className="pr-12 pl-2 bg-slate-800">
@@ -40,6 +42,17 @@ export default function Navbar(
             </div>
           </div>
         </div>
+        {isAdmin ? 
+          (
+            <div>
+              <Link href="/admin-dashboard" className="text-gray-300 hover:bg-gray-700 hover:text-white px-10 py-2 rounded-md text-sm font-medium">
+                Admin
+              </Link>
+            </div>
+          ):(
+            <span/>
+            )
+        }
         {/* Sing in button */}
         {children}
 

@@ -13,21 +13,30 @@ export const collaboratorsRouter = createTRPCRouter({
         name:z.string(),
         career:z.string(),
         semester:z.string(),
+        email:z.string(),
+        photoUrl:z.string(),
     })).mutation(({input,ctx}) => {
+        const updatedUser = db.user.update({
+        where: { email: input.email },
+        data: { role: "COLLABORATOR" },
+      });
         const collaborator = db.collaborator.create({
             data:{
                 name: input.name,
                 career: input.career,
                 semester: input.semester,
-                userId: ctx.session.user.id,
+                email: input.email,
+                photoUrl: input.photoUrl,
             }
         });
-        return collaborator;
+        return {collaborator, updatedUser};
     }),
 
-    getCollaborators: protectedProcedure.query(async () => {
+    getCollaborators: publicProcedure.query(async () => {
         const collaborators = await db.collaborator.findMany();
         return collaborators;
     }),
+
+    
 
 });

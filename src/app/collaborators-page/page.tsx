@@ -19,7 +19,9 @@ export default function Collaborators() {
     }
 
     if(isLoading){
-        return <p>Is Loading</p>
+        return <p className='h-screen w-full bg-gradient-to-t from-[#500889] to-[#440674] text-white flex items-center justify-center typo-calendario text-xl'>
+        <img src='Img/Ellipse.png' className='size-40 animate-spin'/>
+        </p>
     }
 
     return(
@@ -66,7 +68,7 @@ export default function Collaborators() {
                                     <h2 className="text-sky-500 font-bold">
                                         {collaborator.name}
                                     </h2>
-                                    <img src="images/temp/circle-temp.png"/>
+                                    <img src={collaborator.photoUrl}/>
                                     <h3 className="text-white">
                                         <p>{collaborator.career}</p>
                                         <p>{collaborator.semester}</p>
@@ -77,7 +79,11 @@ export default function Collaborators() {
                         })
                     }
                 </div>
-                <CollaboratorsForm/>
+                <CollaboratorsForm />
+                <span className="invisible">
+                    <p>.</p>
+                    <p>.</p>
+                </span>
             </section>
         </main>
     );

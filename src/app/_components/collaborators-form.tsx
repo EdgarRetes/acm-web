@@ -1,27 +1,31 @@
 import { useState } from "react";
 import { api } from "~/trpc/react";
 
-export default function CollaboratorsForm() {
+export default function CollaboratorRequestsForm() {
     
     const [name, setName] = useState("");
     const [career, setCareer] = useState("");
     const [semester, setSemester] = useState("");
+    const [photoUrl, setPhoto] = useState("");
+    
 
-    const createCollaboratorMutation = api.collaborator.createCollaborator.useMutation()
+    const createCollaboratorRequestMutation = api.collaboratorRequest.createCollaboratorRequest.useMutation()
 
-    function create_collaborator() {
-        createCollaboratorMutation.mutate({
+    function create_collaboratorRequest() {
+        createCollaboratorRequestMutation.mutate({
             name,
             career,
             semester,
+            photoUrl,
         }, {
             onError(error, variables, context) {
+                alert(`Ingresa con una cuenta de Google para registrarte`)
                 console.log({
                     error
                  })
             },
             onSuccess(data, variables, context) {
-                alert(`Todo ${data.name} created`)
+                alert(`Solicitud para colaborador "${data.name}" creada`)
             },
         }
         )
@@ -33,9 +37,9 @@ export default function CollaboratorsForm() {
 
     return (
         <form onSubmit={(e) => {
-            create_collaborator();
+            create_collaboratorRequest();
         }} 
-        className="space-y-4 px-28"
+        className="p-4 space-y-4 max-w-xl mx-auto bg-white rounded-lg shadow-md"
         >
             <div className="bg-white font-mono shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
                 <div className="-mx-3 md:flex mb-6">
@@ -64,14 +68,25 @@ export default function CollaboratorsForm() {
                     />
                 </div>
                 <div className="-mx-3 md:flex mb-6">
-                    <input className="input-class appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" 
-                        type="text"
-                        name="semester"
+                    <select 
                         id="semester"
+                        name="semester"
                         onChange={e => setSemester(e.target.value)}
-                        placeholder="Semestre"
+                        className="input-class appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                         required
-                    />
+                    >
+                        <option value="" disabled selected>Selecciona un semestre</option>
+                        <option value="1">1° Semestre</option>
+                        <option value="2">2° Semestre</option>
+                        <option value="3">3° Semestre</option>
+                        <option value="4">4° Semestre</option>
+                        <option value="5">5° Semestre</option>
+                        <option value="6">6° Semestre</option>
+                        <option value="7">7° Semestre</option>
+                        <option value="8">8° Semestre</option>
+                        <option value="9">9° Semestre</option>
+                        <option value="10">10° Semestre</option>
+                    </select>
                 </div>
                 
                 <div className="flex items-center justify-center w-full py-6">
@@ -86,6 +101,7 @@ export default function CollaboratorsForm() {
                         <input 
                             id="dropzone-file" 
                             type="file" 
+                            onChange={e => setPhoto(e.target.value)}
                             className="hidden" 
                             required
                         />
@@ -93,7 +109,7 @@ export default function CollaboratorsForm() {
                 </div> 
 
                 <button type="submit" className="btn-class bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Agregar Colaborador
+                    Registrarse como colaborador
                 </button>
             </div>
         </form>
