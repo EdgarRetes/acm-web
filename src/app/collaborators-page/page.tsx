@@ -53,14 +53,14 @@ export default function Collaborators() {
                 </div>
             </section>
             <section className="min-h-screen items-center justify-center text-center">
-                <div className="grid grid-cols-8 grid-rows-12 font-mono space-y-5 px-36 py-10" style={{ gridTemplateRows: '50px auto' }}>
+                <div className="grid grid-cols-7 grid-rows-12 font-mono space-y-5 px-36 py-10" style={{ gridTemplateRows: '50px auto' }}>
                     <h1 className="text-white row-start-1 col-start-1 col-span-5 text-4xl font-bold border-x-blue-700 border-l-8 border-spacing-12">
                     <span className="invisible">
                         ..
                     </span>
                         Conoce a nuestros colaboradores
                     </h1>
-                    <span className="row-start-1 col-start-6 col-span-3"/>
+                    <span className="row-start-1 col-start-6 col-span-2"/>
                     {
                         data?.map(collaborator =>{
                             return(
@@ -68,7 +68,7 @@ export default function Collaborators() {
                                     <h2 className="text-sky-500 font-bold">
                                         {collaborator.name}
                                     </h2>
-                                    <img src={collaborator.photoUrl}/>
+                                    <img src={collaborator.photoUrl} className="w-full h-1/2 object-cover rounded-full"/>
                                     <h3 className="text-white">
                                         <p>{collaborator.career}</p>
                                         <p>{collaborator.semester}</p>

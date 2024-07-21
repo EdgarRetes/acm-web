@@ -24,7 +24,7 @@ export default function adminDashboard() {
         createCollaboratorMutation.mutate({
             name: collaboratorRequest.name,
             career: collaboratorRequest.career,
-            semester: collaboratorRequest.semester,
+            semester: `${collaboratorRequest.semester}° Semestre`,
             email: collaboratorRequest.userEmail,
             photoUrl: collaboratorRequest.photoUrl,
         }, {
@@ -59,11 +59,11 @@ export default function adminDashboard() {
     };
 
     return(
-        <main className=" relative min-h-screen items-center justify-center">
+        <main className=" relative min-h-screen items-center justify-center bg-gradient-to-b from-blue-950 to-slate-900 text-white">
         {
         data?.map(collaboratorRequest =>{
             return(
-                <div className="items-center justify-center bg-gradient-to-b from-blue-950 to-slate-900 text-white" key={collaboratorRequest.id}>
+                <div className="items-center justify-center" key={collaboratorRequest.id}>
                     <div className="p-6 px-0">
                         <table className="w-full min-w-max table-auto text-left">
                             <thead>

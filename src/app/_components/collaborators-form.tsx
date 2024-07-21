@@ -1,18 +1,37 @@
 import { useState } from "react";
 import { api } from "~/trpc/react";
-import { UploadButton } from "~/utils/uploadthing";
+import { UploadDropzone } from "~/utils/uploadthing";
+import { useCollaborator } from "./Hooks/isCollaborator";
+import { useAdmin } from "./Hooks/isAdmin";
 
 export default function CollaboratorRequestsForm() {
+    const { isCollaborator } = useCollaborator();
+    const { isAdmin } = useAdmin();
     
     const [name, setName] = useState("");
     const [career, setCareer] = useState("");
     const [semester, setSemester] = useState("");
-    const [photoUrl, setPhoto] = useState("");
+    const [photoUrl, setPhotoUrl] = useState("");
     
 
     const createCollaboratorRequestMutation = api.collaboratorRequest.createCollaboratorRequest.useMutation()
 
     function create_collaboratorRequest() {
+        if (isCollaborator){
+            alert("Este usuario ya está registrado como colaborador");
+            return;
+        }
+        else if(isAdmin){
+            alert("Este usuario ya está registrado como administrador");
+            return;
+
+        }
+
+        if (!photoUrl) {
+            alert("Debes subir una imagen antes de registrarte como colaborador.");
+            return;
+        }
+        
         createCollaboratorRequestMutation.mutate({
             name,
             career,
@@ -89,35 +108,18 @@ export default function CollaboratorRequestsForm() {
                         <option value="10">10° Semestre</option>
                     </select>
                 </div>
-                
-                <div className="flex items-center justify-center w-full py-6">
-                    <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                            <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                            </svg>
-                            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG or JPG (MAX. 115x115px)</p>
-                        </div>
-                        <input 
-                            id="dropzone-file" 
-                            type="file" 
-                            onChange={e => setPhoto(e.target.value)}
-                            className="hidden" 
-                            required
-                        />
-                    </label>
-                </div> 
-                <UploadButton
+                <h3 className="text-left text-zinc-500">Imagen del colaborador</h3>
+                <UploadDropzone
                     endpoint="imageUploader"
                     onClientUploadComplete={(res) => {
-                    // Do something with the response
-                    console.log("Files: ", res);
-                    alert("Upload Completed");
+                        if (res && res[0] && res[0].url) {
+                            setPhotoUrl(res[0].url);
+                            console.log("Files: ", res);
+                            alert("Upload Photo Completed");
+                        }
                     }}
                     onUploadError={(error: Error) => {
-                    // Do something with the error.
-                    alert(`ERROR! ${error.message}`);
+                        alert(`ERROR! ${error.message}`);
                     }}
                 />
                 
