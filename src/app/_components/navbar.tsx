@@ -15,7 +15,7 @@ export default function Navbar({
 
   return (
     <nav 
-      className={`bg-slate-900 backdrop-blur-sm bg-opacity-40 p-4 pl-0 z-50 fixed w-screen transition-transform duration-500 
+      className={`bg-slate-900 backdrop-blur-sm bg-opacity-40 p-3 pl-0 z-50 fixed w-screen transition-transform duration-500 
       ${isNavOpen ? 'translate-y-0' : '-translate-y-full'}`}>
     <div className="pr-12 pl-2">
       <div className="relative flex items-center justify-between h-16">

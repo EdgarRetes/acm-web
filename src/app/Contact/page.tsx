@@ -3,10 +3,10 @@ import { ContactForm } from "~/app/_components/contact-form";
 
 const Contact = () => {
     return (
-        <main className="realtive min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-[#51088A] to-[#200039] text-white">
+        <main className="realtive h-screen w-full flex items-center justify-center bg-gradient-to-b from-[#51088A] to-[#200039] text-white pb-5">
             <div className="grid grid-cols-[100px,100px,100px,100pxS] lg:grid-cols-2 grid-rows-[200px,400px,400px,100px] lg:grid-rows-[200px,400px,100px] mx-36">
                 <section className="col-span-1 lg:col-span-2 mt-20 lg:-ml-10 text-center lg:text-left">
-                    <h1 className="mt-10 lg:mt-0 py-8 text-4xl lg:text-5xl">
+                    <h1 className="mt-5 lg:mt-0 py-8 text-4xl lg:text-5xl">
                         Contáctanos
                     </h1>
                     <div className="w-96 px-5 lg:px-0 lg:w-max pb-6 text-xs lg:text-sm text-justify">
