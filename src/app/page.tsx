@@ -28,17 +28,17 @@ export default async function Home() {
                   src="images/logos/Instagram-Icon.png"
                 />
               </Link>
-              <Link className="hover:bg-cyan-700 rounded-md" href="/">
+              <Link className="hover:bg-cyan-700 rounded-md" href="https://chat.whatsapp.com/ERh3ObbVazi0o7NKpoFLAh">
                 <img
                   src="images/logos/Whatsapp-Icon.png"
                 />
               </Link>
-              <Link className="hover:bg-cyan-700 rounded-md" href="/">
+              <Link className="hover:bg-cyan-700 rounded-md" href="https://github.com/CommunityHub-Qro">
                 <img
                   src="images/logos/Github-Icon.png"
                 />
               </Link>
-              <Link className="hover:bg-cyan-700 rounded-md" href="/">
+              <Link className="hover:bg-cyan-700 rounded-md" href="/Contact">
                 <img
                   src="images/logos/Email-Icon.png"
                 />

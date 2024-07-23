@@ -32,7 +32,7 @@ const Contact = () => {
                             <li className="flex items-center mb-14">
                                 <img src="images/logos/Email-Icon.png" className="w-9 h-7 mr-6" />
                                 <span className="text-sm font-light">
-                                    correoACM@correo.com
+                                    acmtecqro@gmail.com
                                 </span>
                                         
                             </li>
@@ -59,7 +59,7 @@ const Contact = () => {
                     <Link className="rounded-md" href="https://chat.whatsapp.com/ERh3ObbVazi0o7NKpoFLAh">
                         <img className="h-8" src="images/logos/Whatsapp-Icon.png"/>
                     </Link>
-                    <Link className="rounded-md" href="/">
+                    <Link className="rounded-md" href="https://github.com/CommunityHub-Qro">
                         <img className="h-8" src="images/logos/Github-Icon.png"/>
                     </Link>
                 </div>
