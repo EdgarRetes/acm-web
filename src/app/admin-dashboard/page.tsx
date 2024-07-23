@@ -3,6 +3,7 @@
 import { useCollaboratorRequests } from "~/app/_components/Hooks/useCollaboratorRequests";
 import { api } from "~/trpc/react";
 import { useRouter } from 'next/navigation';
+import { Refresh } from "@mui/icons-material";
 
 export default function adminDashboard() {
     const router = useRouter();
@@ -31,7 +32,7 @@ export default function adminDashboard() {
             onError(error, variables, context) {
                 console.log({
                     error
-                 })
+                })
             },
             onSuccess(variables, context) {
                 alert(`Se agrego el colaborador: "${collaboratorRequest.name}"`)
@@ -48,7 +49,7 @@ export default function adminDashboard() {
             onError(error, variables, context) {
                 console.log({
                     error
-                 })
+                })
             },
             onSuccess(data, variables, context) {
                 router.refresh();
@@ -61,9 +62,8 @@ export default function adminDashboard() {
     return(
         <main className=" relative min-h-screen items-center justify-center bg-gradient-to-b from-blue-950 to-slate-900 text-white">
         {
-        data?.map(collaboratorRequest =>{
-            return(
-                <div className="items-center justify-center" key={collaboratorRequest.id}>
+        
+                <div className="items-center justify-center">
                     <div className="p-6 px-0">
                         <table className="w-full min-w-max table-auto text-left">
                             <thead>
@@ -88,8 +88,10 @@ export default function adminDashboard() {
                                 </th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
+                    {data?.map(collaboratorRequest => {
+                        return(
+                            <tbody  key={collaboratorRequest.id}>
+                                <tr>
                                 <td className="p-4 border-b border-blue-gray-50">
                                 <div className="flex items-center gap-3">
                                     <img src={collaboratorRequest.photoUrl} className="inline-block relative object-center !rounded-full w-12 h-12 object-cover robject-contain p-1"/>
@@ -110,10 +112,15 @@ export default function adminDashboard() {
                                 </div>
                                 </td>
                                 <td className="p-4 border-b border-blue-gray-50">
-                                <div className="w-max">
+                                <div className="w-max flex">
                                     <div className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
                                         <button onClick={() => addCollaborator(collaboratorRequest)} className="btn-class bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                             Agregar
+                                        </button>
+                                    </div>
+                                    <div className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal ml-2">
+                                        <button onClick={() => deleteCollaboratorRequest(collaboratorRequest.id)} className="btn-class bg-red-900 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                            Quitar
                                         </button>
                                     </div>
                                 </div>
@@ -121,12 +128,11 @@ export default function adminDashboard() {
                                 <td className="p-4 border-b border-blue-gray-50">
                                 </td>
                             </tr>
-                            </tbody>
-                        </table>
+                            </tbody>);
+                        })}
+                        </table> 
                     </div>
                 </div>
-            );
-        })
         }
         </main>
     );

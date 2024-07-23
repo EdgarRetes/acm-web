@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { api } from "~/trpc/react";
 import { UploadDropzone } from "~/utils/uploadthing";
 import { useCollaborator } from "./Hooks/isCollaborator";
 import { useAdmin } from "./Hooks/isAdmin";
+import { useRegistration } from "./Hooks/useRegistration";
 
 export default function CollaboratorRequestsForm() {
-    const { isCollaborator } = useCollaborator();
+    const { isCollaborator, userEmail } = useCollaborator();
+    // const hasRegistration  = useRegistration(userEmail);
     const { isAdmin } = useAdmin();
     
     const [name, setName] = useState("");
@@ -16,8 +18,8 @@ export default function CollaboratorRequestsForm() {
 
     const createCollaboratorRequestMutation = api.collaboratorRequest.createCollaboratorRequest.useMutation()
 
-    function create_collaboratorRequest() {
-        if (isCollaborator){
+    function create_collaboratorRequest(e: FormEvent<HTMLFormElement>) {
+        if (isCollaborator ){ // || hasRegistration
             alert("Este usuario ya está registrado como colaborador");
             return;
         }
@@ -42,7 +44,7 @@ export default function CollaboratorRequestsForm() {
                 alert(`Ingresa con una cuenta de Google para registrarte`)
                 console.log({
                     error
-                 })
+                })
             },
             onSuccess(data, variables, context) {
                 alert(`Solicitud para colaborador "${data.name}" creada`)
@@ -50,14 +52,14 @@ export default function CollaboratorRequestsForm() {
         }
         )
         console.log({
-           name,career,semester 
+            name,career,semester 
         })
-
+        
     }
 
     return (
-        <form onSubmit={(e) => {
-            create_collaboratorRequest();
+        <form onSubmit={(e: FormEvent<HTMLFormElement>) => {
+            create_collaboratorRequest(e);
         }} 
         className="p-4 space-y-4 max-w-xl mx-auto bg-white rounded-lg shadow-md"
         >

@@ -19,7 +19,7 @@ export const collaboratorsRouter = createTRPCRouter({
         const updatedUser = db.user.update({
         where: { email: input.email },
         data: { role: "COLLABORATOR" },
-      });
+    });
         const collaborator = db.collaborator.create({
             data:{
                 name: input.name,
@@ -36,6 +36,19 @@ export const collaboratorsRouter = createTRPCRouter({
         const collaborators = await db.collaborator.findMany();
         return collaborators;
     }),
+
+    // getSingleCollaborator: publicProcedure
+    //     .input(z.object({
+    //         email: z.string()
+    //     }))
+    //     .query(async (session) => {
+    //         const collaborator = await db.collaboratorRequest.findFirst({
+    //             where: {
+    //                 email: session.input.email
+    //             }
+    //         })
+    //     return collaborator?.email as string | undefined;
+    //     })
 
     
 

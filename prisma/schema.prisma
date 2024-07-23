@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-    provider  = "postgresql"
-    url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+    provider = "postgresql"
+    url      = env("DATABASE_URL") // uses connection pooling
 }
 
 model Post {
@@ -57,16 +57,16 @@ enum UserRole {
 }
 
 model User {
-    id            String         @id @default(cuid())
-    name          String?
-    email         String?        @unique
-    emailVerified DateTime?
-    image         String?
-    accounts      Account[]
-    sessions      Session[]
-    posts         Post[]
+    id                   String                @id @default(cuid())
+    name                 String?
+    email                String?               @unique
+    emailVerified        DateTime?
+    image                String?
+    accounts             Account[]
+    sessions             Session[]
+    posts                Post[]
     collaboratorRequests CollaboratorRequest[]
-    role          UserRole       @default(USER)
+    role                 UserRole              @default(USER)
 }
 
 model VerificationToken {
@@ -97,13 +97,13 @@ model Collaborator {
 }
 
 model CollaboratorRequest {
-    id       String @id @default(cuid())
-    name     String
-    career   String
-    semester String
-    made_by  User?   @relation(fields: [userEmail], references: [email])
-    userEmail   String?
-    photoUrl String
+    id        String  @id @default(cuid())
+    name      String
+    career    String
+    semester  String
+    made_by   User?   @relation(fields: [userEmail], references: [email])
+    userEmail String?
+    photoUrl  String
 
     @@index([userEmail])
 }
