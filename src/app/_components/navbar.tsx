@@ -28,31 +28,32 @@ export default function Navbar({
                   ACM
                 </Link>
             </div>
-              <Link href="/page2" className="text-white hover:bg-slate-400 hover:bg-opacity-70 hover:text-white px-3 py-2 rounded-2xl text-sm font-medium">
+              <Link href="/about-us" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Sobre Nosotros
               </Link>
-              <Link href="/page2" className="text-white  hover:bg-slate-400 hover:bg-opacity-70 hover:text-white px-3 py-2 rounded-2xl text-sm font-medium">
+              <Link href="/events" className="text-gray-300 hover:bg-gray-700 hover:bg-opacity-40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Eventos
               </Link>
-              <Link href="/page2" className="text-white  hover:bg-slate-400 hover:bg-opacity-70 hover:text-white px-3 py-2 rounded-2xl text-sm font-medium">
+              <Link href="/projects" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Proyectos
               </Link>
-              <Link href="/page2" className="text-white  hover:bg-slate-400 hover:bg-opacity-70 hover:text-white px-3 py-2 rounded-2xl text-sm font-medium">
-                Recursos
+              <Link href="/ResourcesACM" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              Recursos
               </Link>
-              <Link href="/page2" className="text-white  hover:bg-slate-400 hover:bg-opacity-70 hover:text-white px-3 py-2 rounded-2xl text-sm font-medium">
+              <Link href="/collaborators-page" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Colaboradores
               </Link>
-              <Link href="/Contact" className="text-white  hover:bg-slate-400 hover:bg-opacity-70 hover:text-white px-3 py-2 rounded-2xl text-sm font-medium">
+              <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:bg-opacity-40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Contacto
               </Link>
             </div>
           </div>
         </div>
-        {/* Sing in button */}        
+        {/* Sign in button */}        
         {children}
       </div>
     </div>
   </nav>
 
-)};
+  );
+}
