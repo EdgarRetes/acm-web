@@ -37,18 +37,20 @@ export const collaboratorsRouter = createTRPCRouter({
         return collaborators;
     }),
 
-    // getSingleCollaborator: publicProcedure
-    //     .input(z.object({
-    //         email: z.string()
-    //     }))
-    //     .query(async (session) => {
-    //         const collaborator = await db.collaboratorRequest.findFirst({
-    //             where: {
-    //                 email: session.input.email
-    //             }
-    //         })
-    //     return collaborator?.email as string | undefined;
-    //     })
+    getSingleCollaborator: publicProcedure
+        .input(z.object({
+            email: z.string()
+        }))
+        .query(async (session) => {
+            const collaborator = await db.collaboratorRequest.findFirst({
+                where: {
+                    userEmail: session.input.email
+                }
+            })
+            
+        if(collaborator?.userEmail) return collaborator.userEmail as string;
+        return null
+        })
 
     
 

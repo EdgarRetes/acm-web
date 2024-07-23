@@ -7,7 +7,8 @@ import { useRegistration } from "./Hooks/useRegistration";
 
 export default function CollaboratorRequestsForm() {
     const { isCollaborator, userEmail } = useCollaborator();
-    // const hasRegistration  = useRegistration(userEmail);
+    const hasRegistration  = useRegistration(userEmail);
+    console.log(hasRegistration?.data)
     const { isAdmin } = useAdmin();
     
     const [name, setName] = useState("");
@@ -19,8 +20,8 @@ export default function CollaboratorRequestsForm() {
     const createCollaboratorRequestMutation = api.collaboratorRequest.createCollaboratorRequest.useMutation()
 
     function create_collaboratorRequest(e: FormEvent<HTMLFormElement>) {
-        if (isCollaborator ){ // || hasRegistration
-            alert("Este usuario ya está registrado como colaborador");
+        if (isCollaborator || hasRegistration?.data ){ 
+            alert(`Este usuario ya está registrado como colaborador ${hasRegistration?.data}`);
             return;
         }
         else if(isAdmin){
@@ -30,6 +31,7 @@ export default function CollaboratorRequestsForm() {
         }
 
         if (!photoUrl) {
+            e.preventDefault()
             alert("Debes subir una imagen antes de registrarte como colaborador.");
             return;
         }
