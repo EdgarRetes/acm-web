@@ -45,21 +45,21 @@ export function ContactForm() {
     }
 
     return(
-        <form ref={formRef} onSubmit={handleSubmit} className='py-4 mt-4 flex flex-col gap-5 text-white'>
+        <form ref={formRef} onSubmit={handleSubmit} className='py-2 lg:py-4 mt-4 flex flex-col gap-5 text-white'>
 
             {/*Contact Form*/} 
 
-            <div className='flex flex-col'>
-                <label className='block font-semibold'>Nombre</label>
-                <input name='name' autoComplete='off' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-96 focus:ring-0 focus:border-white' type="text" required/>
+            <div className='flex flex-col mx-10 lg:mx-0'>
+                <label className='block text-sm lg:text-base font-semibold'>Nombre</label>
+                <input name='name' autoComplete='off' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-72 lg:w-96 focus:ring-0 focus:border-white' type="text" required/>
             </div>
-            <div>
-                <label className='block font-semibold'>Email</label>
-                <input name='email' autoComplete='off' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-96 focus:ring-0 focus:border-white' type="email" required/>
+            <div className='flex flex-col mx-10 lg:mx-0'>
+                <label className='block text-sm lg:text-base font-semibold'>Email</label>
+                <input name='email' autoComplete='off' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-72 lg:w-96 focus:ring-0 focus:border-white' type="email" required/>
             </div>
-            <div>
-                <label className='block font-semibold'>Mensaje</label>
-                <textarea name='message' autoComplete='off' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-96 focus:ring-0 focus:border-white py-4' required/>
+            <div className='flex flex-col mx-10 lg:mx-0'>
+                <label className='block text-sm lg:text-base font-semibold'>Mensaje</label>
+                <textarea name='message' autoComplete='off' className='border-r-0 border-l-0 border-b-1 border-t-0 border-white bg-transparent w-72 lg:w-96 focus:ring-0 focus:border-white py-4' required/>
             </div>
             <button className='bg-[#8100A1] p-1 w-32 rounded-2xl ml-32 hover:bg-[#601982] hover:border-[#66198A] hover:border-2 hover:shadow-[#8F35BA] hover:shadow-lg' type='submit'>Enviar</button>
 
