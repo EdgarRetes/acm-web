@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useAdmin } from '~/app/_components/Hooks/isAdmin';
 import { useAnimetedNav } from '../Hooks/useAnimatedNav';
 
 export default function Navbar({
@@ -10,7 +11,7 @@ export default function Navbar({
     children: React.ReactNode;
   }
 ) {  
-
+  const { isAdmin } = useAdmin();
   const isNavOpen = useAnimetedNav({});
 
   return (
@@ -49,7 +50,18 @@ export default function Navbar({
             </div>
           </div>
         </div>
-        {/* Sign in button */}        
+        {isAdmin ? 
+          (
+            <div>
+              <Link href="/admin-dashboard" className="text-gray-300 hover:bg-gray-700 hover:text-white px-10 py-2 rounded-md text-sm font-medium mr-2">
+                Admin
+              </Link>
+            </div>
+          ):(
+            <span/>
+            )
+        }
+        {/* Sing in button */}
         {children}
       </div>
     </div>
