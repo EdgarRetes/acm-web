@@ -1,53 +1,56 @@
+'use client';
+
 import Link from 'next/link';
-import { getServerAuthSession } from "~/server/auth";
+import { useAnimetedNav } from '../Hooks/useAnimatedNav';
 
+export default function Navbar({
+  children,
+}:
+  {
+    children: React.ReactNode;
+  }
+) {  
 
-export default async function Navbar() {  
+  const isNavOpen = useAnimetedNav({});
 
-  const session = await getServerAuthSession();
   return (
-  <nav className="bg-gray-800 p-4 pl-0 z-50 fixed w-screen">
+    <nav 
+      className={`bg-slate-900 backdrop-blur-sm bg-opacity-40 p-3 pl-0 z-50 fixed w-screen transition-transform duration-500 
+      ${isNavOpen ? 'translate-y-0' : '-translate-y-full'}`}>
     <div className="pr-12 pl-2">
       <div className="relative flex items-center justify-between h-16">
         <div className="flex-1 flex justify-center sm:items-stretch sm:justify-start">
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4 items-center">
             <div className="flex-shrink-0">
-              <Link href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-3xl font-medium acm flex">
-                  <img src='images/logos/ACM_logo_CG.png' className='size-8 mr-2' alt='logo-amc'/>
+              <Link href="/" className="text-white hover:bg-slate-400 hover:bg-opacity-70 hover:text-white px-3 py-2 rounded-2xl text-3xl font-medium acm flex">
+                  <img src='images/logos/ACM_logo_CW.png' className='size-8 mr-2 '/>
                   ACM
                 </Link>
             </div>
-              <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="/about-us" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Sobre Nosotros
               </Link>
-              <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="/events" className="text-gray-300 hover:bg-gray-700 hover:bg-opacity-40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Eventos
               </Link>
-              <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="/projects" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Proyectos
               </Link>
               <Link href="/ResourcesACM" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
               Recursos
               </Link>
-              <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="/collaborators-page" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Colaboradores
               </Link>
-              <Link href="/page2" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="/Contact" className="text-gray-300 hover:bg-gray-700 hover:bg-opacity-40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Contacto
               </Link>
             </div>
           </div>
         </div>
-
-        <div>
-          <Link
-                href={session ? "/api/auth/signout" : "/api/auth/signin"}
-                className="text-gray-300 rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/50 w-full"
-              >
-                {session ? "Sign out" : "Sign in"}
-          </Link>
-        </div>
+        {/* Sign in button */}        
+        {children}
       </div>
     </div>
   </nav>

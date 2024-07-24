@@ -5,6 +5,7 @@ import Navbar from "./_components/navbar";
 import { GeistSans } from "geist/font/sans";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import Signin from "./_components/Signin";
 
 export const metadata = {
   title: "ACM | Web Page",
@@ -17,12 +18,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <Navbar />
+          <Navbar>
+            <Signin/>
+          </Navbar>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
   );
 }
+
