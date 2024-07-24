@@ -187,7 +187,7 @@ const Resources_ACM = () => {
                                     </div>
                                     <div className="flex items-center mt-12">
                                         <a href="https://earthshakira.github.io/a2oj-clientside/server/Ladders.html" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
-                                            <button className="bg-transparent hover:underline p-4 rounded-full flex items-center justify-center ">
+                                            <button className="bg-transparent hover:underline p-4 flex items-center justify-center ">
                                                 <img src="images/icons/problem_set.png" className="w-32 h-auto" alt="problem-set" />
                                                 <p className="text-white ml-14 text-center text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg ">Practice Ladders </p>
                                             </button>
@@ -195,7 +195,7 @@ const Resources_ACM = () => {
                                     </div>
                                     <div className="flex items-center mt-12">
                                         <a href="https://drive.google.com/file/d/1F7LcdQzaUMJFbb5DVNBQEgNKQiTNnDVv/view" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
-                                            <button className="bg-transparent hover:underline p-4 rounded-full flex items-center justify-center ">
+                                            <button className="bg-transparent hover:underline p-4 flex items-center justify-center ">
                                                 <img src="images/icons/user-guide.png" className="w-32 h-auto" alt="user-guide" />
                                                 <p className="text-white ml-6 text-center text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">Data Structures and Algorithms in C++  </p>
                                             </button>
@@ -450,7 +450,7 @@ const Resources_ACM = () => {
                 {showRecomendaciones && (
                         <div className="flex flex-wrap text-white font-serif">
                         <div className="w-full p-4  justify-center text-center items-center">
-                            <p className="font-bold text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-2xl">¿Cómo iniciar con programación competitiva?</p>
+                            <p className="font-bold text-sm sm:text-sm md:text-base lg:text-base xl:text-2xl">¿Cómo iniciar con programación competitiva?</p>
                             <p className="text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg mt-8 ml-2">
                                 Iniciar con programación competitiva puede parecer intimidante al principio, pero con una buena guía y práctica constante, 
                                 puedes progresar rápidamente.
@@ -468,23 +468,23 @@ const Resources_ACM = () => {
                     
                         {/* Left Column */}
                         <div className="w-full md:w-1/2 p-4 text-xl mb-10">
-                            <p className="font-bold text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl">TIPS</p>
-                            
+                            <p className="font-bold text-sm sm:text-sm md:text-base lg:text-base xl:text-xl">TIPS</p>
+
                             <p className="m-4 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">1. Conocer los Fundamentos de la Programación</p>
-                            <p className="m-3 ml-2 mb-12 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">
+                            <p className="m-3 ml-2 mb-12 text-sm sm:text-sm md:text-base lg:text-base xl:text-lg">
                                 Asegúrate de tener una buena comprensión de al menos un lenguaje de programación. 
                                 Los lenguajes más comunes en programación competitiva son C++, Java y Python.
                                 Si aún no dominas alguno de estos lenguajes, te recomendamos empezar con C++ por su eficiencia y amplia aceptación en competencias.
                             </p>
                     
-                            <p className="m-4 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">2. Aprender Estructuras de Datos y Algoritmos</p>
-                            <p className="m-3 ml-2  mb-12 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">
+                            <p className="m-4 text-sm sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">2. Aprender Estructuras de Datos y Algoritmos</p>
+                            <p className="m-3 ml-2  mb-12 text-sm sm:text-sm md:text-base lg:text-base xl:text-lg">
                                 Tener un conocimiento sólido de estructuras de datos (como arrays, listas enlazadas, pilas, colas, árboles, grafos) y algoritmos 
                                 (como búsqueda binaria, ordenamiento, algoritmos de grafos, programación dinámica) es crucial. 
                             </p>
                     
-                            <p className="m-4 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">3. Practicar en Plataformas de Competencias</p>
-                            <p className="m-3 ml-2  mb-12 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">
+                            <p className="m-4 text-sm sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">3. Practicar en Plataformas de Competencias</p>
+                            <p className="m-3 ml-2  mb-12 text-sm sm:text-sm md:text-base lg:text-base xl:text-lg">
                                 Hay muchas plataformas en línea donde puedes practicar problemas de programación competitiva y participar en concursos. Algunas de las más populares son:
                                 <a href="https://codeforces.com/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline mt-2 ml-6 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg" > Codeforces</a>
                                 <a href="https://www.hackerrank.com/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline ml-6 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg"> HackerRank</a>
@@ -494,15 +494,15 @@ const Resources_ACM = () => {
                                 <a href="https://www.codechef.com/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline ml-6 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg"> CodeChef</a>
                             </p>
                     
-                            <p className="m-4 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">4. Participar en Concursos Online</p>
-                            <p className="m-3 ml-2  mb-12 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">
+                            <p className="m-4 text-sm sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">4. Participar en Concursos Online</p>
+                            <p className="m-3 ml-2  mb-12 text-sm sm:text-sm md:text-base lg:text-base xl:text-lg">
                                 Participa en concursos en línea regularmente. 
                                 Esto te ayudará a acostumbrarte al formato de las competencias y mejorar tus habilidades para resolver problemas bajo presión. 
                                 Codeforces, por ejemplo, organiza concursos varias veces al mes.
                             </p>
                 
-                            <p className="m-4 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">5. Resolver Problemas Diariamente</p>
-                            <p className="m-3 ml-2  mb-12 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">
+                            <p className="m-4 text-sm sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">5. Resolver Problemas Diariamente</p>
+                            <p className="m-3 ml-2  mb-12 text-sm sm:text-sm md:text-base lg:text-base xl:text-lg">
                                 La práctica constante es clave.
                                 Trata de resolver al menos un problema al día. 
                                 Empieza con problemas de nivel básico y ve subiendo de nivel conforme te sientas más cómodo.
@@ -510,26 +510,26 @@ const Resources_ACM = () => {
                         </div>
                         {/*Right Column*/}
                         <div className="w-full md:w-1/2 p-4">
-                            <p className="m-4 font-bold text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl">6. Leer y Analizar Soluciones de Otros</p>
-                            <p className="m-3 ml-2  mb-12 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">
+                            <p className="m-4 font-bold text-sm sm:text-sm md:text-base lg:text-base xl:text-xl">6. Leer y Analizar Soluciones de Otros</p>
+                            <p className="m-3 ml-2  mb-12 text-sm sm:text-sm md:text-base lg:text-base xl:text-lg">
                                 Después de intentar resolver un problema, compara tu solución con las de otros participantes. 
                                 Esto te ayudará a aprender nuevas técnicas y enfoques para resolver problemas.
                             </p>
 
-                            <p className="m-4 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">7. Unirse a Comunidades y Foros</p>
-                            <p className="m-3 ml-2  mb-12 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">
+                            <p className="m-4 text-sm sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">7. Unirse a Comunidades y Foros</p>
+                            <p className="m-3 ml-2  mb-12 text-sm sm:text-sm md:text-base lg:text-base xl:text-lg">
                                 Ser parte de una comunidad puede ser muy útil. Puedes unirte a foros como el de Codeforces, grupos en redes sociales, o comunidades en Discord y Slack. 
                                 Aquí podrás discutir problemas, compartir soluciones y recibir consejos de otros competidores.
                             </p>
 
-                            <p className="m-4 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">8. Estudiar y Practicar Matemáticas</p>
-                            <p className="m-3 ml-2  mb-12 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">
+                            <p className="m-4 text-sm sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">8. Estudiar y Practicar Matemáticas</p>
+                            <p className="m-3 ml-2  mb-12 text-sm sm:text-sm md:text-base lg:text-base xl:text-lg">
                                 La matemática es una parte importante de la programación competitiva. 
                                 Asegúrate de tener conocimientos sólidos en combinatoria, teoría de números, probabilidad y otras áreas matemáticas relevantes.La matemática es una parte importante de la programación competitiva. 
                             </p>
 
-                            <p className="m-4 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">9. Tomar Cursos en Línea</p>
-                            <p className="m-3 ml-2 mb-12 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">
+                            <p className="m-4 text-sm sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">9. Tomar Cursos en Línea</p>
+                            <p className="m-3 ml-2 mb-12 text-sm sm:text-sm md:text-base lg:text-base xl:text-lg">
                             Hay muchos cursos en línea gratuitos y pagos que pueden ayudarte a mejorar tus habilidades. Algunos de los más recomendados son:
                                 <a href="https://www.coursera.org/?msockid=3474eabcca2b6f513502fec1cbaf6ec0" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline mt-2 ml-6 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">Coursera (tienen cursos de estructuras de datos y algoritmos)</a>
                                 <a href="https://www.edx.org/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline ml-6 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">edX</a>
@@ -537,8 +537,8 @@ const Resources_ACM = () => {
                                 <a href="https://www.geeksforgeeks.org/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline ml-6 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">GeeksforGeeks</a>
                             </p>
 
-                            <p className="m-4 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">10. Leer Libros sobre Programación Competitiva</p>
-                            <p className="m-3 ml-2 mb-12 text-sm-2 sm:text-sm md:text-base lg:text-base xl:text-lg">
+                            <p className="m-4 text-sm sm:text-sm md:text-base lg:text-base xl:text-xl font-bold">10. Leer Libros sobre Programación Competitiva</p>
+                            <p className="m-3 ml-2 mb-12 text-sm sm:text-sm md:text-base lg:text-base xl:text-lg">
                                 Son recursos excelentes para aprender y mejorar en programación competitiva. 
                                 Puedes elegir aquellos que se adapten mejor a tu nivel y preferencias de aprendizaje
                             </p>
