@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 import Navbar from "./_components/navbar";
 import { GeistSans } from "geist/font/sans";
 import { TRPCReactProvider } from "~/trpc/react";
-import Signin from "./_components/SignIn";
+import Signin from "./_components/Signin";
 import ClientSessionProvider from "./_components/clientProvider";
 import "@uploadthing/react/styles.css";
 
@@ -20,12 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <ClientSessionProvider>
-          <div className="pb-16">
+        <ClientSessionProvider>         
             <Navbar>
-              <Signin />
+              <Signin/>
             </Navbar>
-          </div>
           <TRPCReactProvider>{children}</TRPCReactProvider>
         </ClientSessionProvider>
       </body>

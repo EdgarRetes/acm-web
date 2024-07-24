@@ -65,6 +65,9 @@ export default function adminDashboard() {
         
                 <div className="items-center justify-center">
                     <div className="p-6 px-0">
+                        <div className="invisible mt-20">
+                            .
+                        </div>
                         <table className="w-full min-w-max table-auto text-left">
                             <thead>
                             <tr>

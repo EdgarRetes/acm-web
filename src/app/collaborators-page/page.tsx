@@ -1,12 +1,5 @@
 'use client';
 
-import Link from "next/link";
-
-import { CreatePost } from "~/app/_components/create-post";
-import { getServerAuthSession } from "~/server/auth";
-import { api } from "~/trpc/server";
-import { useState } from "react";
-
 import CollaboratorsForm from "~/app/_components/collaborators-form";
 import { useCollaborators } from "~/app/_components/Hooks/useCollaborator";
 
