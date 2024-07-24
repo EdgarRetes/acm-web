@@ -54,13 +54,13 @@ const Resources_ACM = () => {
                 <div className="p-8">
                     <div className="tracking-wide">
                         {/* Description */}
-                        <h1 className="mt-6 text-white font-bold text-xl text-center">
+                        <h1 className="mt-6 text-white font-bold text-3xl text-center">
                             ¡Hola Comunidad!
                         </h1>
-                        <p className="mt-4 text-white text-lg text-center">
+                        <p className="mt-4 text-white text-2xl text-center">
                             En nuestro grupo estudiantil estamos comprometidos en ayudarte a mejorar tus habilidades de programación. Por eso, hemos recopilado todos los enlaces y presentaciones que usamos durante nuestras "Semanas Tec". Estos recursos contienen información útil y práctica que beneficiará a toda la comunidad.
                         </p>
-                        <p className="mt-9 text-white text-base text-center">
+                        <p className="mt-9 text-white text-xl text-center">
                             Para ver el contenido oprime cualquiera de los cuatro botones de abajo
                         </p>
                     </div>
@@ -147,101 +147,87 @@ const Resources_ACM = () => {
                                 {/*First column*/}
                                 <div className="w-full md:w-1/3">
                                     <div className="flex items-center mt-12">
-                                        <img
-                                            src="images/icons/user-guide.png"
-                                            className="w-32 h-auto "
-                                            alt="user-guide"
-                                        />
                                         <a href="https://cses.fi/book/book.pdf" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> Competitive Programmer's Handbook </p>
+                                            <button className="bg-transparent hover:underline p-4 rounded-full flex items-center justify-center">
+                                                <img
+                                                            src="images/icons/user-guide.png"
+                                                            className="w-32 h-auto "
+                                                            alt="user-guide"
+                                                        />                                    
+                                                    <p className="text-white ml-6 text-xl"> Competitive Programmer's Handbook </p>
+                                            </button>
                                         </a>
                                     </div>
                                     <div className="flex items-center mt-12">
-                                        <img
-                                            src="images/icons/e-learning.png"
-                                            className="w-32 h-auto "
-                                            alt="e-learning"
-                                        />
                                         <a href="https://omegaup.com/course/introduccion_a_cpp/" target="_blank" rel="noonpener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> Introducción a C++ </p>
+                                            <button className="bg-transparent hover:underline p-4 rounded-full   flex items-center justify-center">
+                                                <img src="images/icons/e-learning.png" className="w-32 h-auto " alt="e-learning"  />
+                                                <p className="text-white ml-16 text-xl"> Introducción a C++ </p>
+                                            </button>
                                         </a>
                                     </div>
                                     <div className="flex items-center mt-12">
-                                        <img
-                                            src="images/icons/practice.png"
-                                            className="w-32 h-auto "
-                                            alt="practice"
-                                        />
                                         <a href="https://codeforces.com/" target="_blank" rel="noonpener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> Codeforces </p>
+                                            <button className="bg-transparent hover:underline p-4 rounded-full flex  items-center justify-center">
+                                                <img src="images/icons/practice.png" className="w-32 h-auto "  alt="practice"  />
+                                                <p className="text-white ml-20 text-xl"> Codeforces </p>
+                                            </button>
                                         </a>
                                     </div>
                                 </div>
                                 {/* Second column*/}
                                 <div className="w-full md:w-1/3">
-                                    <div className="flex items-center mt-10">
-                                        <img
-                                            src="images/icons/problem_set.png"
-                                            className="w-32 h-auto "
-                                            alt="problem-set"
-                                        />
-                                        <a href="https://cses.fi/problemset/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> CSES Problem Set </p>
+                                   <div className="flex items-center mt-12">
+                                        <a href="https://cses.fi/problemset/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent hover:underline p-4 rounded-full flex items-center justify-center ">
+                                                <img src="images/icons/problem_set.png" className="w-32 h-auto" alt="problem-set" />
+                                                <p className="text-white ml-10 text-xl ">CSES Problem Set</p>
+                                            </button>
                                         </a>
                                     </div>
                                     <div className="flex items-center mt-12">
-                                        <img
-                                            src="images/icons/problem_set.png"
-                                            className="w-32 h-auto "
-                                            alt="problem-set"
-                                        />
-                                        <a href="https://earthshakira.github.io/a2oj-clientside/server/Ladders.html" target="_blank" rel="noonpener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> Practice Ladders </p>
+                                        <a href="https://earthshakira.github.io/a2oj-clientside/server/Ladders.html" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent hover:underline p-4 rounded-full flex items-center justify-center ">
+                                                <img src="images/icons/problem_set.png" className="w-32 h-auto" alt="problem-set" />
+                                                <p className="text-white ml-14 text-xl ">Practice Ladders </p>
+                                            </button>
                                         </a>
                                     </div>
                                     <div className="flex items-center mt-12">
-                                        <img
-                                            src="images/icons/user-guide.png"
-                                            className="w-32 h-auto "
-                                            alt="user-guide"
-                                        />
-                                        <a href="https://drive.google.com/file/d/1F7LcdQzaUMJFbb5DVNBQEgNKQiTNnDVv/view" target="_blank" rel="noonpener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> Data Structures and Algorithms in C++ </p>
+                                        <a href="https://drive.google.com/file/d/1F7LcdQzaUMJFbb5DVNBQEgNKQiTNnDVv/view" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent hover:underline p-4 rounded-full flex items-center justify-center ">
+                                                <img src="images/icons/user-guide.png" className="w-32 h-auto" alt="user-guide" />
+                                                <p className="text-white ml-6 text-xl ">Data Structures and Algorithms in C++  </p>
+                                            </button>
                                         </a>
                                     </div>
                                 </div>
                                 {/* Third column*/}
                                 <div className=" w-full md:w-1/3">
-                                    <div className="flex items-center mt-10">
-                                        <img
-                                            src="images/icons/e-learning.png"
-                                            className="w-32 h-auto "
-                                            alt="e-learning"
-                                        />
-                                        <a href="https://usaco.guide/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> USACO Guide </p>
+                                    <div className="mt-10">
+                                        <a href="https://usaco.guide/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent p-4 rounded-full flex items-center justify-center">
+                                                <img src="images/icons/e-learning.png" className="w-32 h-auto "  alt="e-learning"  />
+                                                <p className=" text-xl ml-24"> USACO Guide </p>
+                                            </button>
                                         </a>
                                     </div>
-                                    <div className="flex items-center mt-10">
-                                        <img
-                                            src="images/icons/user-guide.png"
-                                            className="w-32 h-auto "
-                                            alt="user-guide"
-                                        />
-                                        <a href="https://files.gitter.im/SamZhangQingChuan/sam/DA1g/Steven-Halim_-Felix-Halim-Competitive-Programming-3_-The-New-Lower-Bound-of-Programming-Contests-Lulu.com-_2013_.pdf" target="_blank" rel="noonpener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> Competitive Programming 3 </p>
+                                    <div className="mt-10">
+                                        <a href="https://files.gitter.im/SamZhangQingChuan/sam/DA1g/Steven-Halim_-Felix-Halim-Competitive-Programming-3_-The-New-Lower-Bound-of-Programming-Contests-Lulu.com-_2013_.pdf" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent p-4 rounded-full flex items-center justify-center">
+                                                <img src="images/icons/user-guide.png" className="w-32 h-auto "  alt="user-guide"  />
+                                                <p className=" text-xl ml-12"> Competitive Programming 3 </p>
+                                            </button>
                                         </a>
-                                    </div>
-                                    <div className="flex items-center mt-10">
-                                        <img
-                                            src="images/icons/problem_set.png"
-                                            className="w-32 h-auto "
-                                            alt="problem_set"
-                                        />
-                                        <a href="https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=604&limit=15&limitstart=0" target="_blank" rel="noonpener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> Online Judge </p>
+                                    </div>   
+                                    <div className="mt-10">
+                                        <a href="https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=604&limit=15&limitstart=0" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent p-4 rounded-full flex items-center justify-center">
+                                                <img src="images/icons/problem_set.png" className="w-32 h-auto "  alt="problem_set"  />
+                                                <p className=" text-xl ml-24"> Online Judge  </p>
+                                            </button>
                                         </a>
-                                    </div>
+                                    </div>                                                                
                                 </div>
                             </div>
 
@@ -254,61 +240,54 @@ const Resources_ACM = () => {
                                     </div>
                             </div>
                             <div className="flex flex-wrap">
+                                {/*First column*/}
                                 <div className="w-full md:w-1/3 justify-center ">
-                                    <div className="flex items-center mb-8">
-                                        <img
-                                            src="images/icons/e-learning.png"
-                                            className="w-32 h-auto "
-                                            alt="e-learning"
-                                        />
-                                        <a href="https://omegaup.com/course/introduccion_a_algoritmos/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> Introducción a Algoritmos </p>
+                                    |<div className="mt-2">
+                                        <a href="https://omegaup.com/course/introduccion_a_algoritmos/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent p-4 rounded-full flex items-center justify-center">
+                                                <img src="images/icons/e-learning.png" className="w-32 h-auto "  alt="e-learning"  />
+                                                <p className=" text-xl ml-24"> Introducción a Algoritmos  </p>
+                                            </button>
                                         </a>
-                                    </div>
-                                    <div className="flex items-center ">
-                                        <img
-                                            src="images/icons/e-learning.png"
-                                            className="w-32 h-auto "
-                                            alt="e-learning"
-                                        />
-                                        <a href="https://omegaup.com/course/introduccion_a_algoritmos_ii/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> Introducción a Algoritmos - Parte II </p>
+                                    </div> 
+                                    <div className="mt-10">
+                                        <a href="https://omegaup.com/course/introduccion_a_algoritmos_ii/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent p-4 rounded-full flex items-center justify-center">
+                                                <img src="images/icons/e-learning.png" className="w-32 h-auto "  alt="e-learning"  />
+                                                <p className=" text-xl ml-24">Introducción a Algoritmos - Parte II   </p>
+                                            </button>
                                         </a>
-                                    </div>
+                                    </div> 
                                 </div>
+                                {/*Second column*/}
                                 <div className="md:w-1/3 w-full justify-center">
-                                    <div className="flex items-center mb-8">
-                                        <img
-                                            src="images/icons/practice.png"
-                                            className="w-32 h-auto "
-                                            alt="practice"
-                                        />
-                                        <a href="https://www.hackerearth.com/practice/problems/?limit=20&offset=0" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> Hacker Earth </p>
+                                    <div className="mt-10">
+                                        <a href="https://www.hackerearth.com/practice/problems/?limit=20&offset=0" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent p-4 rounded-full flex items-center justify-center">
+                                                <img src="images/icons/practice.png"className="w-32 h-auto "  alt="practice"  />
+                                                <p className=" text-xl ml-24">Hacker Earth  </p>
+                                            </button>
                                         </a>
-                                    </div>
-                                    <div className="flex items-center mb-8">
-                                        <img
-                                            src="images/icons/practice.png"
-                                            className="w-32 h-auto "
-                                            alt="practice"
-                                        />
-                                        <a href="https://omegaup.com/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> OmegaUp </p>
+                                    </div>  
+                                    <div className="mt-10">
+                                        <a href="https://omegaup.com/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent p-4 rounded-full flex items-center justify-center">
+                                                <img src="images/icons/practice.png"className="w-32 h-auto "  alt="practice"  />
+                                                <p className=" text-xl ml-24">OmegaUp</p>
+                                            </button>
                                         </a>
-                                    </div>
+                                    </div>                               
                                 </div>
+                                {/*Third column*/}
                                 <div className="w-full md:w-1/3 justify-center">
-                                    <div className="flex items-center">
-                                        <img
-                                            src="images/icons/practice.png"
-                                            className="w-32 h-auto"
-                                            alt="practice"
-                                        />
-                                        <a href="https://leetcode.com/problemset/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full">
-                                            <p className="text-white ml-4 text-xl"> LeetCode </p>
+                                <div className="mt-10">
+                                        <a href="https://leetcode.com/problemset/" target="_blank" rel="noopener noreferrer" className="block text-white hover:underline w-full text-center">
+                                            <button className="bg-transparent p-4 rounded-full flex items-center justify-center">
+                                                <img src="images/icons/practice.png"className="w-32 h-auto "  alt="practice"  />
+                                                <p className=" text-xl ml-24"> LeetCode</p>
+                                            </button>
                                         </a>
-                                    </div>
+                                    </div>  
                                 </div>
                             </div>
                         </div>
@@ -403,7 +382,7 @@ const Resources_ACM = () => {
                             <a href="https://www.youtube.com/watch?v=_gYUlvcnjs0" target="_blank" rel="noonpener noreferrer" className="block hover:cursor-pointer">
                                 <button className="bg-transparent hover:underline p-4 rounded-full flex items-center justify-center">
                                     <img src="images/icons/youtube.png" className="w-12 h-auto m-2" alt="youtube"/>
-                                    <p className="text-xl"> Exponenciación modular (Parte 1) </p>                                
+                                    <p className="text-xl"> Modular Exponentiation (Part 1) </p>                                
                                 </button>
                             </a> 
                             <a href="https://www.youtube.com/watch?v=bg0P_3UiG5I" target="_blank" rel="noonpener noreferrer" className="block hover:cursor-pointer">
@@ -531,7 +510,7 @@ const Resources_ACM = () => {
                             </p>
                         </div>
                         {/*Right Column*/}
-                        <div className="w-full md:w-1/2 p-4 mt-8 text-xl">
+                        <div className="w-full md:w-1/2 p-4 text-xl">
 
                             <p className="m-4 font-bold">6. Leer y Analizar Soluciones de Otros</p>
                             <p className="m-3 ml-2  mb-12">
