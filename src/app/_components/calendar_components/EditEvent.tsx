@@ -7,16 +7,18 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import dayjs, { Dayjs } from 'dayjs';
 import moment from 'moment';
+import { Event } from '~/app/types/EventCalendarType';
 
 interface Props extends DialogProps {
-  addNewEvent: (title: string, content: string, date: Moment) => void;
+  event: Event
+  editEventHandler: (title: string, content: string, date: Moment, id: number) => void
 }
 
 
-const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
-  const [fecha, setFecha] = useState<Dayjs | null>(null)
+const NewEventDialog: FC<Props> = ({ event, onClose, editEventHandler, ... rest}) => {
+  const [title, setTitle] = useState(event.title)
+  const [content, setContent] = useState(event.content)
+  const [fecha, setFecha] = useState<Dayjs | null>(dayjs(event.date.format('MM/DD/YYYY')))
   
   
 
@@ -25,7 +27,8 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
     onClose?.({}, 'escapeKeyDown')
     const momentFecha = dayjs(fecha).toDate()
     const fechaEvento = moment(momentFecha)
-    addNewEvent(title, content, fechaEvento)
+    // addNewEvent(title, content, fechaEvento)
+    editEventHandler(title, content, fechaEvento, event._id)
     setTitle('');
     setContent('');
     setFecha(null);
@@ -35,9 +38,7 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
 
   return (
     <Dialog {...rest} onClose={onClose}>
-      <div className='p-2 text-xl'>
-        Añadir Evento:
-        </div>
+      <div className='text-xl p-2'>Editar Evento</div>
       <Divider />
       <form onSubmit={handleSubmit}>
         <DialogContent className='flex flex-col w-full md:w-[30rem] gap-5'>
@@ -62,7 +63,6 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
             className='my-2'
           />
           
-          {/* Entrada de fecha */}
           <LocalizationProvider dateAdapter={AdapterDayjs} >
             <DatePicker label='Dia del evento' 
               format="DD/MM/YYYY"
