@@ -17,7 +17,7 @@ import { Session } from 'next-auth'
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faLink } from '@fortawesome/free-solid-svg-icons';
 import EditEvent from './EditEvent'
 
 interface Props {
@@ -47,12 +47,13 @@ const EventCalendar: FC<Props> = ({ session}) =>  {
       setDia(newDay)
     }
 // Edit event
-    const editEventHandler = (title: string, content: string, date: Moment, id: number) => {
+    const editEventHandler = (title: string, content: string, date: Moment, id: number, url: string) => {
       
       editEvent.mutate({
         id,
         title, 
         content,
+        url,
         date: date.format('YYYY-MM-DD'),
       },
       {
@@ -67,11 +68,12 @@ const EventCalendar: FC<Props> = ({ session}) =>  {
 
 
 // New event
-    const addNewEventHandler = (title: string, content: string, date: Moment) => {
+    const addNewEventHandler = (title: string, content: string, url: string, date: Moment) => {
       
       createEvent.mutate({
         title,
         content,
+        url,
         date: date.format('YYYY-MM-DD'),
       }, 
       {
@@ -89,6 +91,7 @@ const EventCalendar: FC<Props> = ({ session}) =>  {
         _id: event.id,
         title: event.title,
         content: event.content,
+        url: event.url,
         date: moment(event.date),
       }
       return e
@@ -125,8 +128,11 @@ const EventCalendar: FC<Props> = ({ session}) =>  {
                         {e.content }
                         </div>
   {/* Editar Eventos */}
-                        <div className={`w-full flex justify-end ${session?.user.role === 'ADMIN' ? '' : 'hidden'}`}>
-                          <button className='bg-[#a371cb] p-1 px-3 rounded-full hover:bg-[#c5a7dd] flex' onClick={() => setshowEditEventDialog(true)}>
+                        <div className='w-full flex justify-between'>
+                          <a className='bg-[#a371cb] p-1 px-3 rounded-full hover:bg-[#c5a7dd]' href={e.url} target='_blank'>
+                            <FontAwesomeIcon icon={faLink} />
+                          </a>
+                          <button className={`bg-[#a371cb] p-1 px-3 rounded-full hover:bg-[#c5a7dd] flex w-10 items-center ${session?.user.role === 'ADMIN' ? '' : 'hidden'}`} onClick={() => setshowEditEventDialog(true)}>
                             <FontAwesomeIcon icon={faEdit} />
                           </button>
                         </div>
@@ -160,7 +166,6 @@ const EventCalendar: FC<Props> = ({ session}) =>  {
                           i={i} 
                           item={item}
                           events = {my_events.filter(d => item.date.isSame(d.date, 'day'))}
-                          addNewEventHandler={addNewEventHandler}
                           onDayChange={handleDayChange}/> 
                         : <ExtraDays key={i} daysGridLength={daysGrid.length} i={i}/>)
                     )}

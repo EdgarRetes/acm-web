@@ -10,6 +10,7 @@ export type Event = {
     _id: number;
     title: string;
     content: string;
+    url: string;
     date: Moment; // | Date 
 }
 // export type Events_definition = {
