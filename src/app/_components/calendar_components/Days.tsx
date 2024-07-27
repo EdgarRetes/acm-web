@@ -11,7 +11,6 @@ interface Props {
     daysGridLenght: number;
     item: DaysGrid;
     events?: EventsData;
-    addNewEventHandler: (title: string, content: string, date: Moment) => void
     onDayChange: (dia: Moment) => void
 }
 
