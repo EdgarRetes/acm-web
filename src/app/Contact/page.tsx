@@ -3,7 +3,7 @@ import { ContactForm } from "~/app/_components/contact-form";
 
 const Contact = () => {
     return (
-        <main className="flex realtive min-h-screen w-full items-center justify-center bg-gradient-to-b from-[#51088A] to-[#200039] text-white overflow-hidden">
+        <main className="flex min-h-screen w-full items-center justify-center bg-gradient-to-b from-[#51088A] to-[#200039] text-white overflow-hidden">
             <div className="grid lg:grid-cols-2 grid-rows-[200px,400px,400px,100px] lg:grid-rows-[200px,400px,100px] mx-36">
                 <section className="lg:col-span-2 mt-20 lg:-ml-10 text-center lg:text-left">
                     <h1 className="mt-5 lg:mt-0 py-8 text-4xl lg:text-5xl">
