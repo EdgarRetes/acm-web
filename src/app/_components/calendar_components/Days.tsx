@@ -49,7 +49,7 @@ const Day: FC<Props> = ({daysGridLenght, i, item, events, onDayChange}) => {
             </>}
           <div className='  w-[2rem] h-[2rem] relative md:w-[4.5rem] md:h-[4.5rem]  hover:bg-[#d57aef] hover:bg-opacity-50 rounded-full ml-2 '>
             <div className='-ml-2'>
-              <div className={` flex absolute ${isSameDate ? 'bg-[#d57aef] hover:bg-[#ffacff] bg-opacity-70 hover:opacity-100' : ''}  text-slate-950 w-[2rem] h-[2rem] md:h-[4.5rem] md:w-[4.5rem] items-center justify-center text-2xl md:text-3xl mx-2  rounded-full typo-calendario cursor-pointer`}
+              <div className={` flex absolute ${isSameDate ? 'bg-[#d57aef] hover:bg-[#ffacff] bg-opacity-70 hover:opacity-100' : ''}  text-slate-950 w-[2rem] h-[2rem] md:h-[4.5rem] md:w-[4.5rem] items-center justify-center text-xl md:text-3xl mx-2  rounded-full typo-calendario cursor-pointer`}
                 onClick={() => handleClickEvent(item.date)} // [CHANGE] autentificación y botón en otro extremo / lugar | setShowNewEventDialog(true)
               >
                   {item.date.format('DD')}

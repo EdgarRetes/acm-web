@@ -13,6 +13,6 @@ export function useProtectedView(location: string ) {
   }, [status])
 
   return {
-    status
+    status,
   }
 }

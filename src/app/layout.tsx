@@ -3,9 +3,10 @@ import Navbar from "./_components/navbar";
 import Footer from "./_components/footer";
 
 import { GeistSans } from "geist/font/sans";
-
 import { TRPCReactProvider } from "~/trpc/react";
 import Signin from "./_components/Signin";
+import ClientSessionProvider from "./_components/clientProvider";
+import "@uploadthing/react/styles.css";
 
 export const metadata = {
   title: "ACM | Web Page",
@@ -18,17 +19,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <Navbar>
-          <Signin/>
-        </Navbar>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
-        <Footer/>
+        <ClientSessionProvider>         
+            <Navbar>
+              <Signin/>
+            </Navbar>
+          <TRPCReactProvider>{children}</TRPCReactProvider>
+          <Footer/>
+        </ClientSessionProvider>
       </body>
     </html>
   );
 }
-
