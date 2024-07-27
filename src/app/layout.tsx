@@ -1,5 +1,7 @@
 import "~/styles/globals.css";
 import Navbar from "./_components/navbar";
+import Footer from "./_components/footer";
+
 import { GeistSans } from "geist/font/sans";
 import { TRPCReactProvider } from "~/trpc/react";
 import Signin from "./_components/Signin";
@@ -25,6 +27,7 @@ export default function RootLayout({
               <Signin/>
             </Navbar>
           <TRPCReactProvider>{children}</TRPCReactProvider>
+          <Footer/>
         </ClientSessionProvider>
       </body>
     </html>

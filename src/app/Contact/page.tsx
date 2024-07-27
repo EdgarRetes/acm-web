@@ -3,9 +3,9 @@ import { ContactForm } from "~/app/_components/contact-form";
 
 const Contact = () => {
     return (
-        <main className="realtive h-screen w-full flex items-center justify-center bg-gradient-to-b from-[#51088A] to-[#200039] text-white pb-5">
-            <div className="grid grid-cols-[100px,100px,100px,100pxS] lg:grid-cols-2 grid-rows-[200px,400px,400px,100px] lg:grid-rows-[200px,400px,100px] mx-36">
-                <section className="col-span-1 lg:col-span-2 mt-20 lg:-ml-10 text-center lg:text-left">
+        <main className="flex min-h-screen w-full items-center justify-center bg-gradient-to-b from-[#51088A] to-[#200039] text-white overflow-hidden">
+            <div className="grid lg:grid-cols-2 grid-rows-[200px,400px,400px,100px] lg:grid-rows-[200px,400px,100px] mx-36">
+                <section className="lg:col-span-2 mt-20 lg:-ml-10 text-center lg:text-left">
                     <h1 className="mt-5 lg:mt-0 py-8 text-4xl lg:text-5xl">
                         Contáctanos
                     </h1>
@@ -19,7 +19,7 @@ const Contact = () => {
                     </div>
                 </section>
 
-                <section className="row-start-2 col-span-1 mt-32 lg:mt-16 ml-0 lg:-ml-10">
+                <section className="row-start-2 mt-32 lg:mt-16 ml-0 lg:-ml-10">
                     <ContactForm />
                 </section>
                 <section className="lg:col-start-2 row-start-3 lg:row-start-2 mt-28 lg:mt-14 mx-8 lg:mx-0 lg:ml-16 p-10 w-80 lg:w-96 h-64 lg:h-96 bg-[#8100A1]">
