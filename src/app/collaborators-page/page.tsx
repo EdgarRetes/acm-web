@@ -37,7 +37,7 @@ export default function Collaborators() {
             />
           </div>
           <div className="col-span-3 col-start-4 row-start-3 mx-7 py-5 text-center text-white md:mx-0 md:text-left">
-            !Felicidades ____ por ser el colaborador del mes! Se reconoce tu
+            ¡Felicidades ____ por ser el colaborador del mes! Se reconoce tu
             trabajo en los proyectos y eventos para fomentar la pasión por la
             programación en nuestra comunidad.
           </div>
