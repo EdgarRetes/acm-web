@@ -46,7 +46,7 @@ export default function Collaborators() {
                 </div>
             </section>
             <section className="min-h-screen items-center justify-center text-center">
-                <div className="grid grid-cols-7 grid-rows-12 font-mono space-y-5 px-36 py-10" style={{ gridTemplateRows: '50px auto' }}>
+                <div className="grid grid-cols-7 grid-rows-12 font-mono space-y-5 px-36 py-10" style={{ gridTemplateRows: '50px auto' } }>
                     <h1 className="text-white row-start-1 col-start-1 col-span-5 text-4xl font-bold border-x-blue-700 border-l-8 border-spacing-12">
                     <span className="invisible">
                         ..
@@ -54,24 +54,27 @@ export default function Collaborators() {
                         Conoce a nuestros colaboradores
                     </h1>
                     <span className="row-start-1 col-start-6 col-span-2"/>
-                    {
-                        data?.map(collaborator =>{
-                            return(
-                                <div className="flex flex-col items-center justify-center p-4 hover:bg-blue-900 rounded-full" key={collaborator.id}>
-                                    <h2 className="text-sky-500 font-bold">
-                                        {collaborator.name}
-                                    </h2>
-                                    <img src={collaborator.photoUrl} className="w-full h-1/2 object-cover rounded-full"/>
-                                    <h3 className="text-white">
-                                        <p>{collaborator.career}</p>
-                                        <p>{collaborator.semester}</p>
-                                    </h3>
-                                </div>
-                            )
-
-                        })
-                    }
                 </div>
+                    <div className="w-10/12 flex justify-center mx-auto">
+                        <div className='flex flex-row w-full h-full justify-between flex-wrap'>
+                            {
+                                data?.map(collaborator =>{
+                                    return(
+                                        <div className="flex flex-col items-center justify-center p-4 hover:bg-blue-900 rounded-full w-52 min-h-[20rem]" key={collaborator.id}>
+                                            <h2 className="text-sky-500 font-bold">
+                                                {collaborator.name}
+                                            </h2>
+                                            <img src={collaborator.photoUrl} className="w-full h-1/2 object-cover rounded-full"/>
+                                            <h3 className="text-white">
+                                                <p>{collaborator.career}</p>
+                                                <p>{collaborator.semester}</p>
+                                            </h3>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
                 <CollaboratorsForm />
                 <span className="invisible">
                     <p>.</p>
