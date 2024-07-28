@@ -31,7 +31,7 @@ export default function CollaboratorRequestsForm() {
             return;
 
         }
-        else if(isUser){
+        else if(!isUser){
             alert("Debes registrarte para poder mandar la solicitud");
             return;
         }
