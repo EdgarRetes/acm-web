@@ -35,6 +35,11 @@ export default function CollaboratorRequestsForm() {
             alert("Debes subir una imagen antes de registrarte como colaborador.");
             return;
         }
+
+        if (!hasRegistration?.data){
+            alert("Debes registrate con una cuenta de Google para mandar la solicitud.");
+            return;
+        }
         
         createCollaboratorRequestMutation.mutate({
             name,
@@ -43,7 +48,7 @@ export default function CollaboratorRequestsForm() {
             photoUrl,
         }, {
             onError(error, variables, context) {
-                alert(`Ingresa con una cuenta de Google para registrarte`)
+                alert(`ERROR: No se pudo crear la solicitud`)
                 console.log({
                     error
                 })
