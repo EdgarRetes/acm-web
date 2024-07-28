@@ -3,6 +3,7 @@ import { api } from "~/trpc/react";
 import { UploadDropzone } from "~/utils/uploadthing";
 import { useCollaborator } from "./Hooks/isCollaborator";
 import { useAdmin } from "./Hooks/isAdmin";
+import { useUser } from "./Hooks/isUser";
 import { useRegistration } from "./Hooks/useRegistration";
 
 export default function CollaboratorRequestsForm() {
@@ -10,6 +11,7 @@ export default function CollaboratorRequestsForm() {
     const hasRegistration  = useRegistration(userEmail);
     console.log(hasRegistration?.data)
     const { isAdmin } = useAdmin();
+    const { isUser } = useUser();
     
     const [name, setName] = useState("");
     const [career, setCareer] = useState("");
@@ -29,15 +31,14 @@ export default function CollaboratorRequestsForm() {
             return;
 
         }
+        else if(isUser){
+            alert("Debes registrarte para poder mandar la solicitud");
+            return;
+        }
 
         if (!photoUrl) {
             e.preventDefault()
             alert("Debes subir una imagen antes de registrarte como colaborador.");
-            return;
-        }
-
-        if (!hasRegistration?.data){
-            alert("Debes registrate con una cuenta de Google para mandar la solicitud.");
             return;
         }
         
