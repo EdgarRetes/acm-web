@@ -23,27 +23,27 @@ The web page was made with the [T3 Stack](https://create.t3.gg/), which includes
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center">
 
   <a href="https://nextjs.org/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/next_js.png" alt="Image Next.js" width="40%">
+    <img src="public/readme/next_js.png" alt="Image Next.js" width="20%">
   </a>
 
   <a href="https://www.typescriptlang.org/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/typescript.png" alt="Image Typescript" width="30%">
+    <img src="public/readme/typescript.png" alt="Image Typescript" width="10%">
   </a>
 
   <a href="https://trpc.io/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/tRPC.jpeg" alt="Image tRPC" width="25%">
+    <img src="public/readme/tRPC.jpeg" alt="Image tRPC" width="5%">
   </a>
 
   <a href="https://www.prisma.io/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/Prisma.png" alt="Image Prisma" width="50%">
+    <img src="public/readme/Prisma.png" alt="Image Prisma" width="30%">
   </a>
 
   <a href="https://tailwindcss.com/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/Tailwind.png" alt="Image Tailwind" width="65%">
+    <img src="public/readme/Tailwind.png" alt="Image Tailwind" width="45%">
   </a>
 
   <a href="https://next-auth.js.org/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/NextAuth.png" alt="Image NextAuth" width="30%">
+    <img src="public/readme/NextAuth.png" alt="Image NextAuth" width="10%">
   </a>
 
 </div>
@@ -53,15 +53,15 @@ Additional technologies used:
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center">
 
   <a href="https://www.postgresql.org/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/PostgreSQL.png" alt="Image PostgreSQL" width="70%">
+    <img src="public/readme/PostgreSQL.png" alt="Image PostgreSQL" width="20%">
   </a>
 
   <a href="https://uploadthing.com/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/uploadthing.jpg" alt="Image uploadthing" width="50%">
+    <img src="public/readme/uploadthing.jpg" alt="Image uploadthing" width="20%">
   </a>
 
   <a href="https://cloud.google.com/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/GoogleCloud.png" alt="Image uploadthing" width="50%">
+    <img src="public/readme/GoogleCloud.png" alt="Image uploadthing" width="%20">
   </a>
 
 </div>
