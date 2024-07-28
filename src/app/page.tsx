@@ -14,7 +14,7 @@ export default async function Home() {
 
         <section className="min-h-screen flex flex-col items-center justify-center">
           <div className="grid grid-rows-8 grid-cols-4 items-center text-center text-white">
-            <h1 className="text-xl font-extrabold text-[6rem] md:text-[15rem] col-span-4 lg:col-start-2 lg:col-span-2 row-start-3 md:row-start-4 acm">
+            <h1 className="text-xl font-extrabold text-[96px] md:text-[240px] col-span-4 lg:col-start-2 lg:col-span-2 row-start-3 md:row-start-4 acm">
               A C M
             </h1>
             <div className="col-span-4 mx-5 md:mx-0 my-3 md:my-0 md:col-start-2 md:col-span-2 row-start-4 md:row-start-6 items-center font-mono">
