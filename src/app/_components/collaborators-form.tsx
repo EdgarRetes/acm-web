@@ -63,7 +63,7 @@ export default function CollaboratorRequestsForm() {
         <form onSubmit={(e: FormEvent<HTMLFormElement>) => {
             create_collaboratorRequest(e);
         }} 
-        className="p-4 space-y-4 max-w-xl mx-auto bg-white rounded-lg shadow-md"
+        className="md:p-4 space-y-4 max-w-xl mx-auto bg-white rounded-lg shadow-md w-11/12"
         >
             <div className="bg-white font-mono shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
                 <div className="-mx-3 md:flex mb-6">

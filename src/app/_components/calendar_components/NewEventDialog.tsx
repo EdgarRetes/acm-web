@@ -9,13 +9,14 @@ import dayjs, { Dayjs } from 'dayjs';
 import moment from 'moment';
 
 interface Props extends DialogProps {
-  addNewEvent: (title: string, content: string, date: Moment) => void;
+  addNewEvent: (title: string, content: string, url: string, date: Moment) => void;
 }
 
 
 const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+  const [link, setLink] = useState('')
   const [fecha, setFecha] = useState<Dayjs | null>(null)
   
   
@@ -25,7 +26,7 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
     onClose?.({}, 'escapeKeyDown')
     const momentFecha = dayjs(fecha).toDate()
     const fechaEvento = moment(momentFecha)
-    addNewEvent(title, content, fechaEvento)
+    addNewEvent(title, content, link, fechaEvento)
     setTitle('');
     setContent('');
     setFecha(null);
@@ -57,6 +58,16 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
             rows={4}
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            required
+            fullWidth
+            className='my-2'
+          />
+          <TextField
+            variant = 'outlined'
+            label='Link'
+            type='url'
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
             required
             fullWidth
             className='my-2'

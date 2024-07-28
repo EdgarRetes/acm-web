@@ -10,18 +10,18 @@ export default async function Home() {
   const session = await getServerAuthSession();
 
   return (
-    <main className="relative min-h-screen items-center justify-center bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(images/backgrounds/homepage.png)', minHeight: '400vh', backgroundSize: 'cover', backgroundAttachment: 'scroll'}}>
+    <main className="relative min-h-screen items-center justify-center bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(images/backgrounds/homepage.png)'}}>
 
         <section className="min-h-screen flex flex-col items-center justify-center">
           <div className="grid grid-rows-8 grid-cols-4 items-center text-center text-white">
-            <h1 className="text-xl tracking-wide font-extrabold sm:text-[14rem] col-start-2 col-span-2 row-start-4">
-              <span className="acm text-10xl">A C M</span>
+            <h1 className="text-xl font-extrabold text-[8rem] md:text-[15rem] col-span-4 lg:col-start-2 lg:col-span-2 row-start-3 md:row-start-4 acm">
+              A C M
             </h1>
-            <div className="col-start-2 col-span-2 row-start-6 items-center font-mono">
+            <div className="col-span-4 mx-5 md:mx-0 my-3 md:my-0 md:col-start-2 md:col-span-2 row-start-4 md:row-start-6 items-center">
               ¡Bienvenido a ACM! Somos un grupo estudiantil del Tecnológico de Monterrey, Campus Querétaro dedicado a la
               programación competitiva y otros proyectos de programación. No dudes en contactarnos.
             </div>
-            <div className="col-start-2 col-span-2 row-start-8 flex items-center justify-center space-x-6">
+            <div className="col-span-4 md:col-start-2 md:col-span-2 row-start-5 md:row-start-8 flex items-center justify-center space-x-6">
               <Link className="hover:bg-cyan-700 rounded-md" href="https://www.instagram.com/acm_qro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               >
                 <img
@@ -47,15 +47,15 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="min-h-screen flex flex-col justify-center font-mono">
-          <div className="grid grid-rows-12 grid-cols-5 text-white gap-y-20" style={{ gridTemplateRows: '100px auto' }}>
-            <h1 className="col-start-2 row-start-4 col-span-2 text-5xl font-bold border-x-fuchsia-700 border-l-8 border-spacing-12">
+        <section className="min-h-screen flex flex-col justify-center">
+          <div className="mt-40 grid grid-rows-12 grid-cols-5 text-white gap-y-20" style={{ gridTemplateRows: '100px auto' }}>
+            <h1 className="col-start-1 md:col-start-2 mx-6 md:mx-0 row-start-4 col-span-5 text-3xl md:text-5xl font-bold border-x-fuchsia-700 border-l-8">
               <span className="invisible">
                 ..
               </span>
               Información General
             </h1>
-            <div className="row-start-5 col-start-2 col-span-2 space-y-6">
+            <div className="row-start-5 col-start-1 md:col-start-2 mx-6 md:mx-0 col-span-3 md:col-span-2 space-y-6">
               <p>
                 Association for Computing Machinery, o mejor conocido como "ACM", forma parte de la sociedad de 
                 grupos estudiantiles del Tec de Monterrey - Campus Querétaro. Nuestro propósito es impulsar la programación
@@ -78,13 +78,10 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="min-h-screen flex flex-col justify-center font-mono font-bold">
-          <div className="grid grid-rows-12 grid-cols-5 text-white">
-            <div className="row-start-2 col-start-1 col-span-3">
-              <h1 className="text-5xl">
-              <span className="invisible">
-                ..
-              </span>
+        <section className="min-h-screen flex flex-col justify-center font-bold">
+          <div className="mt-28 grid grid-rows-12 grid-cols-5 text-white">
+            <div className="row-start-2 col-start-1 col-span-5">
+              <h1 className="text-3xl md:text-5xl mx-5">
                 Un poco de nosotros...
               </h1>
             </div>

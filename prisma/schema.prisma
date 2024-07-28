@@ -82,6 +82,7 @@ model Event {
     title   String
     content String
     date    String
+    url     String
     userId  String
 
     @@index([userId])
