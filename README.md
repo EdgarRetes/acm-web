@@ -35,7 +35,7 @@ The web page was made with the [T3 Stack](https://create.t3.gg/), which includes
   </a>
 
   <a href="https://www.prisma.io/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/Prisma.png" alt="Image Prisma" width="30%">
+    <img src="public/readme/Prisma.png" alt="Image Prisma" width="35%">
   </a>
 
   <a href="https://tailwindcss.com/" style="flex: 1 1 30%; text-align: center;">
