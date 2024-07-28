@@ -23,15 +23,15 @@ The web page was made with the [T3 Stack](https://create.t3.gg/), which includes
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center">
 
   <a href="https://nextjs.org/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/next_js.png" alt="Image Next.js" width="20%">
+    <img src="public/readme/next_js.png" alt="Image Next.js" width="30%">
   </a>
 
   <a href="https://www.typescriptlang.org/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/typescript.png" alt="Image Typescript" width="10%">
+    <img src="public/readme/typescript.png" alt="Image Typescript" width="20%">
   </a>
 
   <a href="https://trpc.io/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/tRPC.jpeg" alt="Image tRPC" width="5%">
+    <img src="public/readme/tRPC.jpeg" alt="Image tRPC" width="20%">
   </a>
 
   <a href="https://www.prisma.io/" style="flex: 1 1 30%; text-align: center;">
@@ -61,7 +61,7 @@ Additional technologies used:
   </a>
 
   <a href="https://cloud.google.com/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/GoogleCloud.png" alt="Image uploadthing" width="%20">
+    <img src="public/readme/GoogleCloud.png" alt="Image uploadthing" width="20%">
   </a>
 
 </div>
