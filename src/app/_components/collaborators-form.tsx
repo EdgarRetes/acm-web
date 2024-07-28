@@ -49,7 +49,6 @@ export default function CollaboratorRequestsForm() {
             photoUrl,
         }, {
             onError(error, variables, context) {
-                alert(`ERROR: No se pudo crear la solicitud`)
                 console.log({
                     error
                 })
