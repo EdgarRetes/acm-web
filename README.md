@@ -31,7 +31,7 @@ The web page was made with the [T3 Stack](https://create.t3.gg/), which includes
   </a>
 
   <a href="https://trpc.io/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/tRPC.jpeg" alt="Image tRPC" width="20%">
+    <img src="public/readme/tRPC.jpeg" alt="Image tRPC" width="15%">
   </a>
 
   <a href="https://www.prisma.io/" style="flex: 1 1 30%; text-align: center;">
@@ -39,7 +39,7 @@ The web page was made with the [T3 Stack](https://create.t3.gg/), which includes
   </a>
 
   <a href="https://tailwindcss.com/" style="flex: 1 1 30%; text-align: center;">
-    <img src="public/readme/Tailwind.png" alt="Image Tailwind" width="45%">
+    <img src="public/readme/Tailwind.png" alt="Image Tailwind" width="36%">
   </a>
 
   <a href="https://next-auth.js.org/" style="flex: 1 1 30%; text-align: center;">
