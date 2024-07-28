@@ -1,6 +1,6 @@
 import { Carousel } from "flowbite-react";
 
-export function Carrusel() {
+export function Carrusel_ICPC() {
   return (
     <div className="w-11/12" style={{ height: "300px" }}>
       <Carousel>

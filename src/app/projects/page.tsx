@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import React, { useState } from 'react';
-import { Carrusel } from "~/app/_components/carousel_icpc";
+import { Carrusel_ICPC } from "~/app/_components/carousel_icpc";
+import { Carrusel_alg } from "~/app/_components/carousel_alg";
 
 const Projects = () => {
 
@@ -173,20 +174,135 @@ const Projects = () => {
               </p>
             </div>
             <div className="row-start-22 row-span-7 col-start-3 col-span-10 flex justify-center items-center">
-              <Carrusel/>
+              <Carrusel_ICPC/>
             </div>
           </div>
         )}
         {/* Project: Clases de Algoritmos */}
         {showClasesAlgoritmos && (
-          <div className="mt-4 text-center text-lg text-white">
-            <p>Clases Algoritmos</p>
+          <div className="grid grid-rows-13 grid-cols-24 items-center text-center text-lg text-white font-light">
+            <div className="row-start-2 col-start-3 col-span-20">
+              <p className="text-indigo-600 text-3xl align-text-top font-bold">
+                NUESTRAS CLASES DE ALGORITMOS
+              </p>
+            </div>
+            <div className="row-start-4 row-span-10 col-start-14 col-span-8 text-justify">
+              <p>
+                En el mundo de la programación competitiva es necesario conocer diversos algoritmos
+                y estructuras de datos para resolver los problemas que se plantean en los concursos.
+                Es por ello que, a través de clases durante semana Tec, hemos empezado a introducir a los
+                colaboradores en los temas de programación competitiva. Las presentaciones usadas
+                en las clases anteriores se pueden encontrar en la página
+                de <Link className="underline text-indigo-400 hover:bg-indigo-900"
+                href={"/ResourcesACM"}>recursos</Link>.
+              </p>
+              <br></br>
+              <p>
+                Conocer estos temas brinda grandes ventajas en la agilidad de resolución de problemas,
+                en la creatividad y en la innovación. Asimismo, las entrevistas laborales en el sector de
+                ciencias de la computación suelen estar basadas en todos estos temas. En las clases podrás
+                resolver dudas y poner en práctica todo lo aprendido; además, podrás conocer a personas
+                que te cuenten sus experiencias y te aconsejen para que puedas mejorar en un futuro. 
+                ¡Aprovecha al máximo estos conocimiento y recuerda que estamos para apoyarnos!
+              </p>
+            </div>
+            <div className="row-start-4 row-span-10 col-start-3 col-span-10 flex justify-center items-center">
+              <Carrusel_alg/>
+            </div>
           </div>
         )}
         {/* Project: Community Hub */}
         {showCommunityHub && (
-          <div className="mt-4 text-center text-lg text-white">
-            <p>Community Hub</p>
+          <div className="grid grid-rows-37 grid-cols-24 items-center text-center text-lg text-white font-light">
+            <div className="row-start-2 col-start-3 col-span-20">
+              <p className="text-indigo-600 text-3xl align-text-top font-bold">
+                ¿QUÉ ES?
+              </p>
+            </div>
+            <div className="row-start-4 row-span-3 col-start-3 col-span-20">
+              <p className="text-justify">
+                Community Hub es un proyecto de ACM y sus colaboradores para nuestra comunidad.
+                A través de este proyecto, brindaremos servicios de software gratuitos a organizaciones
+                de servicio comunitario que lo requieran.
+              </p>
+            </div>
+            <div className="row-start-8 col-start-3 col-span-20">
+              <p className="text-indigo-600 text-3xl font-bold">
+                FORMATO DE TRABAJO
+              </p>
+            </div>
+            <div className="row-start-10 row-span-5 col-start-3 col-span-4">
+              <img className="mx-auto max-h-32" src="images/projects-community-hub/contacto.png" alt="contacto"></img>
+            </div>
+            <div className="row-start-10 row-span-5 col-start-8 col-span-4">
+              <img className="mx-auto max-h-32" src="images/projects-community-hub/plan.png" alt="plan"></img>
+            </div>
+            <div className="row-start-10 row-span-5 col-start-13 col-span-4">
+              <img className="mx-auto max-h-32" src="images/projects-community-hub/work1.png" alt="work"></img>
+            </div>
+            <div className="row-start-10 row-span-5 col-start-18 col-span-4">
+              <img className="mx-auto max-h-32" src="images/projects-community-hub/delivery.png" alt="website"></img>
+            </div>
+            <div className="row-start-15 row-span-5 col-start-3 col-span-4">
+              <p className="font-bold">
+                Contacto con la organización
+              </p>
+              <p>
+                Se determinan las necesidades y requerimientos de la organización.
+              </p>
+            </div>
+            <div className="row-start-15 row-span-5 col-start-8 col-span-4">
+              <p className="font-bold">
+                Planeación
+              </p>
+              <p>
+                Se asignan roles y actividades dentro del grupo.
+              </p>
+            </div>
+            <div className="row-start-15 row-span-5 col-start-13 col-span-4">
+              <p className="font-bold">
+                Realización del proyecto
+              </p>
+              <p>
+                Durante el semestre se trabaja con el plan realizado
+                y se muestran avances a la organización para seguimiento
+                y posibles modificaciones.
+              </p>
+            </div>
+            <div className="row-start-15 row-span-5 col-start-18 col-span-4">
+              <p className="font-bold">
+                Entrega del proyecto
+              </p>
+              <p>
+                Entrega del producto final a la organización.
+              </p>
+            </div>
+            <div className="row-start-22 col-start-3 col-span-20">
+              <p className="text-indigo-600 text-3xl font-bold">
+                QUERÉTARO SÍ SONRÍE
+              </p>
+            </div>
+            <div className="row-start-24 row-span-4 col-start-3 col-span-20">
+              <p className="text-justify">
+                Conoce la organización con la que estaremos trabajando este 
+                semestre: <Link className="underline text-indigo-400 hover:bg-indigo-900"
+                href="https://www.instagram.com/qrosisonrie/">Querétaro sí sonríe</Link>.
+                Esta fundación atiende de manera multidisciplinaria el tratamiento
+                de fisura labio palatina en niños.
+              </p>
+              <br></br>
+              <p className="text-justify">
+                Ayudemos a este grupo de médicos a seguir ofreciendo más tratamientos y que
+                puedan difundir su causa de una manera más puntual. Contáctanos para apoyar en
+                el desarrollo de este proyecto.
+              </p>
+            </div>
+            <div className="row-start-29 row-span-9 col-start-3 col-span-10">
+              <img className="mx-auto max-h-72" src="images/projects-community-hub/equipo-qrosisonrie.jpg" alt="médicos"></img>
+            </div>
+            <div className="row-start-29 row-span-9 col-start-13 col-span-10">
+              <img className="mx-auto max-h-72" src="images/projects-community-hub/qrosisonrie.jpg" alt="Querétaro sí sonríe"></img>
+            </div>
           </div>
         )}
         {/* Project: Proyecto 4 */}
