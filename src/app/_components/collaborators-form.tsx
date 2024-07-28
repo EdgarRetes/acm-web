@@ -1,41 +1,69 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { api } from "~/trpc/react";
+import { UploadDropzone } from "~/utils/uploadthing";
+import { useCollaborator } from "./Hooks/isCollaborator";
+import { useAdmin } from "./Hooks/isAdmin";
+import { useRegistration } from "./Hooks/useRegistration";
 
-export default function CollaboratorsForm() {
+export default function CollaboratorRequestsForm() {
+    const { isCollaborator, userEmail } = useCollaborator();
+    const hasRegistration  = useRegistration(userEmail);
+    console.log(hasRegistration?.data)
+    const { isAdmin } = useAdmin();
     
     const [name, setName] = useState("");
     const [career, setCareer] = useState("");
     const [semester, setSemester] = useState("");
+    const [photoUrl, setPhotoUrl] = useState("");
+    
 
-    const createCollaboratorMutation = api.collaborator.createCollaborator.useMutation()
+    const createCollaboratorRequestMutation = api.collaboratorRequest.createCollaboratorRequest.useMutation()
 
-    function create_collaborator() {
-        createCollaboratorMutation.mutate({
+    function create_collaboratorRequest(e: FormEvent<HTMLFormElement>) {
+        if (isCollaborator || hasRegistration?.data ){ 
+            alert(`Este usuario ya está registrado como colaborador ${hasRegistration?.data}`);
+            return;
+        }
+        else if(isAdmin){
+            alert("Este usuario ya está registrado como administrador");
+            return;
+
+        }
+
+        if (!photoUrl) {
+            e.preventDefault()
+            alert("Debes subir una imagen antes de registrarte como colaborador.");
+            return;
+        }
+        
+        createCollaboratorRequestMutation.mutate({
             name,
             career,
             semester,
+            photoUrl,
         }, {
             onError(error, variables, context) {
+                alert(`Ingresa con una cuenta de Google para registrarte`)
                 console.log({
                     error
-                 })
+                })
             },
             onSuccess(data, variables, context) {
-                alert(`Todo ${data.name} created`)
+                alert(`Solicitud para colaborador "${data.name}" creada`)
             },
         }
         )
         console.log({
-           name,career,semester 
+            name,career,semester 
         })
-
+        
     }
 
     return (
-        <form onSubmit={(e) => {
-            create_collaborator();
+        <form onSubmit={(e: FormEvent<HTMLFormElement>) => {
+            create_collaboratorRequest(e);
         }} 
-        className="space-y-4 px-28"
+        className="md:p-4 space-y-4 max-w-xl mx-auto bg-white rounded-lg shadow-md w-11/12"
         >
             <div className="bg-white font-mono shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
                 <div className="-mx-3 md:flex mb-6">
@@ -64,36 +92,43 @@ export default function CollaboratorsForm() {
                     />
                 </div>
                 <div className="-mx-3 md:flex mb-6">
-                    <input className="input-class appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" 
-                        type="text"
-                        name="semester"
+                    <select 
                         id="semester"
+                        name="semester"
                         onChange={e => setSemester(e.target.value)}
-                        placeholder="Semestre"
+                        className="input-class appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                         required
-                    />
+                    >
+                        <option value="" disabled selected>Selecciona un semestre</option>
+                        <option value="1">1° Semestre</option>
+                        <option value="2">2° Semestre</option>
+                        <option value="3">3° Semestre</option>
+                        <option value="4">4° Semestre</option>
+                        <option value="5">5° Semestre</option>
+                        <option value="6">6° Semestre</option>
+                        <option value="7">7° Semestre</option>
+                        <option value="8">8° Semestre</option>
+                        <option value="9">9° Semestre</option>
+                        <option value="10">10° Semestre</option>
+                    </select>
                 </div>
+                <h3 className="text-left text-zinc-500">Imagen del colaborador</h3>
+                <UploadDropzone
+                    endpoint="imageUploader"
+                    onClientUploadComplete={(res) => {
+                        if (res && res[0] && res[0].url) {
+                            setPhotoUrl(res[0].url);
+                            console.log("Files: ", res);
+                            alert("Upload Photo Completed");
+                        }
+                    }}
+                    onUploadError={(error: Error) => {
+                        alert(`ERROR! ${error.message}`);
+                    }}
+                />
                 
-                <div className="flex items-center justify-center w-full py-6">
-                    <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                            <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                            </svg>
-                            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG or JPG (MAX. 115x115px)</p>
-                        </div>
-                        <input 
-                            id="dropzone-file" 
-                            type="file" 
-                            className="hidden" 
-                            required
-                        />
-                    </label>
-                </div> 
-
                 <button type="submit" className="btn-class bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Agregar Colaborador
+                    Registrarse como colaborador
                 </button>
             </div>
         </form>

@@ -1,16 +1,18 @@
-'use client'
 
-import React, { useEffect, useState } from 'react'
+
+import React from 'react'
 import EventCalendar from '../_components/calendar_components/EventCalendar'
-import { EventsData, Event } from '../types/EventCalendarType'
+import { getServerSession, Session } from 'next-auth'
+import { authOptions } from '~/server/auth'
 
-export default function EventsPage() {
-  const [data, setData] = useState<EventsData>([])
+export default async function EventsPage() {
+  const session: Session | null = await getServerSession(authOptions)
+  // console.log(session?.user.role)
+
 
   return (
     <>
-      <EventCalendar event_data={data} onDataChange={(e) => {setData(e)}}/>  
-      {/* {event.date.format('DD')} */}
+      <EventCalendar session={session} />
     </>
   )
 }

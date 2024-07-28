@@ -9,13 +9,14 @@ import dayjs, { Dayjs } from 'dayjs';
 import moment from 'moment';
 
 interface Props extends DialogProps {
-  addNewEvent: (title: string, content: string, date: Moment) => void;
+  addNewEvent: (title: string, content: string, url: string, date: Moment) => void;
 }
 
 
 const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+  const [link, setLink] = useState('')
   const [fecha, setFecha] = useState<Dayjs | null>(null)
   
   
@@ -25,25 +26,31 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
     onClose?.({}, 'escapeKeyDown')
     const momentFecha = dayjs(fecha).toDate()
     const fechaEvento = moment(momentFecha)
-    addNewEvent(title, content, fechaEvento)
+    addNewEvent(title, content, link, fechaEvento)
+    setTitle('');
+    setContent('');
+    setFecha(null);
   }
   
   
 
   return (
     <Dialog {...rest} onClose={onClose}>
+      <div className='p-2 text-xl'>
+        Añadir Evento:
+        </div>
       <Divider />
       <form onSubmit={handleSubmit}>
-        <DialogContent>
-          <TextField 
-            variant = 'outlined'
-            label='Titulo'
-            type='text'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-          <TextField 
+        <DialogContent className='flex flex-col w-full md:w-[30rem] gap-5'>
+            <TextField
+              variant = 'outlined'
+              label='Titulo'
+              type='text'
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          <TextField
             variant = 'outlined'
             label='Contenido'
             type='text'
@@ -55,8 +62,18 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
             fullWidth
             className='my-2'
           />
+          <TextField
+            variant = 'outlined'
+            label='Link'
+            type='url'
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+            required
+            fullWidth
+            className='my-2'
+          />
           
-          {/* [MISSING] Falta entrada de fecha */}
+          {/* Entrada de fecha */}
           <LocalizationProvider dateAdapter={AdapterDayjs} >
             <DatePicker label='Dia del evento' 
               format="DD/MM/YYYY"
@@ -67,7 +84,12 @@ const NewEventDialog: FC<Props> = ({ addNewEvent, onClose, ... rest}) => {
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => onClose?.({}, 'escapeKeyDown')}>Cancelar</Button>
+          <Button onClick={() => {
+            setTitle('');
+            setContent('');
+            setFecha(null);
+            onClose?.({}, 'escapeKeyDown')
+            }}>Cancelar</Button>
           <Button type='submit'>Añadir</Button>
         </DialogActions>
       </form>
